@@ -50,47 +50,61 @@
             <li>Quy Hoạch Động</li>
         </ul>
 
-        <div class="page-layout fade-in-up delay-1">
+        <!-- ARTICLE HERO -->
+        <div class="article-hero fade-in-up" style="background:linear-gradient(135deg,#4c1d95,#be185d);">
+            <div class="article-hero__bg"
+                style="background-image:url('../../images/algorithms/minh-hoa-fibonacci.png');"></div>
+            <div class="article-hero__overlay"></div>
+            <div class="article-hero__icon">⚡</div>
+            <div class="article-hero__content slide-in-left">
+                <span class="tag tag--algo" style="margin-bottom:10px;">⚙️ Thuật Toán · DP</span>
+                <h1>Một Vài Bài Toán Quy Hoạch Động Thú Vị</h1>
+                <p>Kỹ thuật ghi nhớ và tái sử dụng kết quả bài toán con — nền tảng của mọi kỳ thi học sinh giỏi Tin học.
+                </p>
+            </div>
+        </div>
+
+        <div class="page-layout fade-in-up delay-2">
             <aside class="sidebar glass-card glass">
                 <h3 class="sidebar__title">📋 Mục lục</h3>
                 <ul class="sidebar__list">
                     <li><a href="#khainiem" class="sidebar__link">📌 1. Khái niệm DP</a></li>
                     <li><a href="#dac-diem" class="sidebar__link">📌 2. Đặc điểm</a></li>
                     <li><a href="#bangso" class="sidebar__link">📊 3. Bảng phương án</a></li>
-                    <li><a href="#vi-du" class="sidebar__link">📌 4. Ví dụ minh hoạ</a></li>
+                    <li><a href="#vi-du" class="sidebar__link">💻 4. Ví dụ minh hoạ</a></li>
                 </ul>
             </aside>
 
             <article class="article-content glass-card glass">
-                <span class="tag tag--algo">⚡ Thuật Toán · Table</span>
-                <h1 class="glow-text" style="margin-top:12px;">Một Vài Bài Toán Quy Hoạch Động Thú Vị</h1>
-
                 <h2 id="khainiem">1. Quy hoạch động là gì?</h2>
                 <p><strong>Quy hoạch động (Dynamic Programming – DP)</strong> là một kĩ thuật thuật toán dùng để giải
-                    quyết một bài toán phức tạp bằng cách chia nó thành các <a href="#dac-diem">bài toán con nhỏ
-                        hơn</a>, lưu trữ kết quả của các bài toán con này để tối ưu quá trình tính toán tổng thể.</p>
-                <p>Thay vì tính đi tính lại cùng một kết quả nhiều lần (như đệ quy ngây thơ), DP "ghi nhớ" (memoize) các
-                    kết quả đã tính vào một bảng (mảng), giúp giảm độ phức tạp từ hàm mũ xuống còn đa thức.</p>
+                    quyết bài toán phức tạp bằng cách chia nó thành các bài toán con nhỏ hơn, lưu trữ kết quả để tối ưu
+                    quá trình tính toán tổng thể.</p>
+                <p>Thay vì tính đi tính lại cùng một kết quả nhiều lần, DP "ghi nhớ" (memoize) các kết quả đã tính vào
+                    một bảng, giúp giảm độ phức tạp từ hàm mũ xuống còn đa thức.</p>
+
+                <div class="img-zoom slide-in-left">
+                    <img src="../../images/algorithms/minh-hoa-fibonacci.png"
+                        alt="Minh hoạ Fibonacci và cây đệ quy so với DP">
+                </div>
+                <p><em>📸 So sánh trực quan đệ quy ngây thơ và DP cho bài toán Fibonacci.</em></p>
 
                 <h2 id="dac-diem">2. Đặc điểm nhận dạng bài toán DP</h2>
-                <p>Một bài toán phù hợp với DP thường có 2 tính chất sau:</p>
                 <ul>
                     <li>🔁 <strong>Bài toán con gối nhau (Overlapping Subproblems):</strong> Cùng một bài toán con được
-                        giải nhiều lần. Nếu lưu kết quả lại, ta tránh tính lại.</li>
+                        giải nhiều lần.</li>
                     <li>🎯 <strong>Cấu trúc con tối ưu (Optimal Substructure):</strong> Lời giải tối ưu của bài toán lớn
-                        được xây dựng từ lời giải tối ưu của các bài toán con.</li>
+                        được xây dựng từ lời giải tối ưu của bài toán con.</li>
                 </ul>
 
-                <h2 id="bangso">3. Bảng phương án mẫu</h2>
-                <p>Bảng dưới đây minh hoạ bảng phương án cơ bản của quy hoạch động dạng mảng 2 chiều
-                    <code>dp[i][j]</code>. Trong bài toán Túi ba lô (Knapsack), <code>dp[i][j]</code> là giá trị tối đa
-                    khi xét <code>i</code> đồ vật đầu tiên với sức chứa <code>j</code>:</p>
-
+                <h2 id="bangso">3. Bảng phương án mẫu — Bài toán Túi ba lô (Knapsack)</h2>
+                <p><code>dp[i][j]</code> = Giá trị tối đa khi xét <code>i</code> đồ vật đầu tiên với sức chứa
+                    <code>j</code>:</p>
                 <div class="table-wrap">
                     <table>
                         <thead>
                             <tr>
-                                <th>i \ j (Sức chứa)</th>
+                                <th>i \ j</th>
                                 <th>0</th>
                                 <th>1</th>
                                 <th>2</th>
@@ -139,25 +153,19 @@
                         </tbody>
                     </table>
                 </div>
-                <p><em>📊 Bảng DP bài toán Túi ba lô 0/1 với 3 đồ vật và sức chứa tối đa 5.</em></p>
 
-                <h2 id="vi-du">4. Ví dụ: Bài toán Fibonacci với DP</h2>
-                <p>Bài toán Fibonacci là ví dụ kinh điển nhất để minh họa sự khác biệt giữa đệ quy thông thường và DP:
-                </p>
-                <pre><code>// DP Bottom-up: Tính Fibonacci
-// Độ phức tạp: O(n) time, O(n) space
+                <h2 id="vi-du">4. Ví dụ: Fibonacci với DP Bottom-up</h2>
+                <pre><code>// Độ phức tạp: O(n) time, O(n) space
 int fibonacci(int n) {
     int dp[n+1];
     dp[0] = 0;
     dp[1] = 1;
     for (int i = 2; i &lt;= n; i++) {
-        dp[i] = dp[i-1] + dp[i-2];  // Công thức truy hồi
+        dp[i] = dp[i-1] + dp[i-2]; // Công thức truy hồi
     }
     return dp[n];
 }
-// fibonacci(10) = 55
-// Không tính lại bất kỳ giá trị nào!</code></pre>
-
+// fibonacci(10) = 55</code></pre>
                 <blockquote>
                     💡 <strong>Tư duy cốt lõi của DP:</strong> <em>"Thay vì hỏi 'Tôi có thể làm gì từ đây?', hãy hỏi
                         'Tôi đã đến đây bằng cách nào?' và lưu lại câu trả lời."</em>

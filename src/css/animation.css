@@ -1,29 +1,35 @@
 /* css/animation.css */
 
-/* 1. Typewriter */
+/* ═══════════════════════════════════════════════════════════
+   1. TYPEWRITER — hero heading
+   Fix: use max-width instead of overflow:hidden width animation
+   ═══════════════════════════════════════════════════════════ */
 .typing-container {
-    display: inline-block;
+    display: block;
     margin-bottom: 20px;
-    overflow: hidden;
 }
 
 .typing-text {
+    display: inline-block;
     overflow: hidden;
     white-space: nowrap;
     border-right: 3px solid var(--secondary-color-2);
-    animation: typing 3.2s steps(35, end) both, blink-caret 0.75s step-end infinite;
+    max-width: 0;
+    animation:
+        typing 3.0s steps(35, end) 0.3s forwards,
+        blink-caret 0.8s step-end infinite;
+    font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+    line-height: 1.25;
     margin: 0;
-    font-size: clamp(1.6rem, 3.5vw, 2.8rem);
-    line-height: 1.2;
 }
 
 @keyframes typing {
     from {
-        width: 0;
+        max-width: 0;
     }
 
     to {
-        width: 100%;
+        max-width: 100ch;
     }
 }
 
@@ -33,56 +39,242 @@
     }
 }
 
-/* 2. Fade In Up (initial page load) */
+/* ═══════════════════════════════════════════════════════════
+   2. PAGE LOAD — Fade In Up
+   ═══════════════════════════════════════════════════════════ */
 .fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
-    opacity: 0;
-    transform: translateY(28px);
+    animation: fadeInUp 0.75s cubic-bezier(.22, .68, 0, 1.2) both;
 }
 
 .delay-1 {
-    animation-delay: 0.15s;
+    animation-delay: 0.12s;
 }
 
 .delay-2 {
-    animation-delay: 0.3s;
+    animation-delay: 0.24s;
 }
 
 .delay-3 {
-    animation-delay: 0.45s;
+    animation-delay: 0.36s;
 }
 
 .delay-4 {
-    animation-delay: 0.6s;
+    animation-delay: 0.48s;
 }
 
 @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* 3. Float (robot image) */
+/* ═══════════════════════════════════════════════════════════
+   3. FLOAT — robot image
+   ═══════════════════════════════════════════════════════════ */
 .float-anim {
-    animation: floatY 4.5s ease-in-out infinite;
+    animation: floatY 5s ease-in-out infinite;
 }
 
 @keyframes floatY {
 
     0%,
     100% {
-        transform: translateY(0) rotate(-1deg);
+        transform: translateY(0) rotate(-1.5deg);
     }
 
     50% {
-        transform: translateY(-22px) rotate(1deg);
+        transform: translateY(-22px) rotate(1.5deg);
     }
 }
 
-/* 4. Pulse glow (for hero badges/icons) */
+/* ═══════════════════════════════════════════════════════════
+   4. SCROLL REVEAL — cards entering viewport
+   Pure CSS: elements animate on page load with staggered delay.
+   Works best with CSS animation-fill-mode:forwards.
+   ═══════════════════════════════════════════════════════════ */
+@keyframes revealUp {
+    from {
+        opacity: 0;
+        transform: translateY(52px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.scroll-reveal {
+    animation: revealUp 0.7s cubic-bezier(.22, .68, 0, 1.1) both;
+}
+
+.sr-d1 {
+    animation-delay: 0.05s;
+}
+
+.sr-d2 {
+    animation-delay: 0.18s;
+}
+
+.sr-d3 {
+    animation-delay: 0.31s;
+}
+
+.sr-d4 {
+    animation-delay: 0.44s;
+}
+
+.sr-d5 {
+    animation-delay: 0.57s;
+}
+
+.sr-d6 {
+    animation-delay: 0.70s;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   5. FEED CARDS — magazine-style entrance
+   ═══════════════════════════════════════════════════════════ */
+@keyframes feedSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-40px) scale(0.97);
+        filter: blur(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+.feed-reveal {
+    animation: feedSlide 0.65s cubic-bezier(.22, .68, 0, 1.1) both;
+}
+
+.fr-d1 {
+    animation-delay: 0.08s;
+}
+
+.fr-d2 {
+    animation-delay: 0.20s;
+}
+
+.fr-d3 {
+    animation-delay: 0.32s;
+}
+
+.fr-d4 {
+    animation-delay: 0.44s;
+}
+
+.fr-d5 {
+    animation-delay: 0.56s;
+}
+
+.fr-d6 {
+    animation-delay: 0.68s;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   6. HERO backdrop number / big emoji entrance
+   ═══════════════════════════════════════════════════════════ */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.4) rotate(-10deg);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.1) rotate(2deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+.pop-in {
+    animation: popIn 0.6s cubic-bezier(.34, 1.56, .64, 1) both;
+}
+
+.pop-d1 {
+    animation-delay: 0.1s;
+}
+
+.pop-d2 {
+    animation-delay: 0.25s;
+}
+
+.pop-d3 {
+    animation-delay: 0.4s;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   7. SPARKLE particles (decorative)
+   ═══════════════════════════════════════════════════════════ */
+.sparkle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle, var(--secondary-color-2) 0%, transparent 70%);
+}
+
+.sparkle:nth-child(1) {
+    width: 120px;
+    height: 120px;
+    top: -30px;
+    right: 10%;
+    animation: sparkleFloat 6s ease-in-out infinite;
+    opacity: 0.18;
+}
+
+.sparkle:nth-child(2) {
+    width: 80px;
+    height: 80px;
+    bottom: 20px;
+    right: 5%;
+    animation: sparkleFloat 8s ease-in-out 1.5s infinite;
+    opacity: 0.12;
+}
+
+.sparkle:nth-child(3) {
+    width: 50px;
+    height: 50px;
+    top: 40%;
+    left: 5%;
+    animation: sparkleFloat 5s ease-in-out 3s infinite;
+    opacity: 0.15;
+}
+
+@keyframes sparkleFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.15;
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.3);
+        opacity: 0.3;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   8. PULSE GLOW — avatar, icons
+   ═══════════════════════════════════════════════════════════ */
 .pulse-glow {
-    animation: pulseGlow 2.5s ease-in-out infinite;
+    animation: pulseGlow 3s ease-in-out infinite;
 }
 
 @keyframes pulseGlow {
@@ -93,77 +285,17 @@
     }
 
     50% {
-        box-shadow: 0 0 22px 6px var(--neon-glow);
+        box-shadow: 0 0 30px 8px var(--neon-glow);
     }
 }
 
-/* 5. Hover Zoom img */
-.img-zoom img {
-    transition: transform 0.5s ease;
+/* ═══════════════════════════════════════════════════════════
+   9. ANIMATED GRADIENT BORDER
+   ═══════════════════════════════════════════════════════════ */
+.animated-border {
+    animation: borderGlow 4s ease-in-out infinite;
 }
 
-.img-zoom:hover img {
-    transform: scale(1.07);
-}
-
-/* 6. Slide in from left */
-.slide-left {
-    animation: slideLeft 0.7s ease forwards;
-    opacity: 0;
-    transform: translateX(-40px);
-}
-
-@keyframes slideLeft {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* 7. Particle sparkle on hero (decorative CSS only) */
-.sparkle {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--secondary-color-2);
-    animation: sparkle 3s ease-in-out infinite;
-    pointer-events: none;
-}
-
-.sparkle:nth-child(1) {
-    top: 15%;
-    left: 80%;
-    animation-delay: 0s;
-}
-
-.sparkle:nth-child(2) {
-    top: 70%;
-    left: 90%;
-    animation-delay: 0.8s;
-}
-
-.sparkle:nth-child(3) {
-    top: 50%;
-    left: 10%;
-    animation-delay: 1.6s;
-}
-
-@keyframes sparkle {
-
-    0%,
-    100% {
-        opacity: 0;
-        transform: scale(0);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.5);
-    }
-}
-
-/* 8. Gradient border animation on cards */
 @keyframes borderGlow {
 
     0%,
@@ -172,67 +304,115 @@
     }
 
     50% {
-        border-color: rgba(198, 143, 230, 0.6);
+        border-color: rgba(198, 143, 230, 0.7);
     }
 }
 
-.animated-border {
-    animation: borderGlow 3s ease-in-out infinite;
-}
-
-/* 9. Icon spin */
-.icon-spin {
-    animation: spin 8s linear infinite;
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* 10. Scroll reveal (used with small delay per card element) */
-@keyframes revealUp {
+/* ═══════════════════════════════════════════════════════════
+   10. SLIDE IN from left/right (article sections)
+   ═══════════════════════════════════════════════════════════ */
+@keyframes slideInLeft {
     from {
         opacity: 0;
-        transform: translateY(48px);
+        transform: translateX(-60px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
     }
 }
 
-.scroll-reveal {
-    animation: revealUp 0.75s ease forwards;
-    opacity: 0;
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-.sr-d1 {
-    animation-delay: 0.05s;
+.slide-in-left {
+    animation: slideInLeft 0.7s cubic-bezier(.22, .68, 0, 1.1) both;
 }
 
-.sr-d2 {
-    animation-delay: 0.15s;
+.slide-in-right {
+    animation: slideInRight 0.7s cubic-bezier(.22, .68, 0, 1.1) both;
 }
 
-.sr-d3 {
-    animation-delay: 0.25s;
+/* ═══════════════════════════════════════════════════════════
+   11. IMG ZOOM on hover
+   ═══════════════════════════════════════════════════════════ */
+.img-zoom {
+    overflow: hidden;
+    border-radius: 14px;
+    display: block;
+    margin: 22px 0;
 }
 
-.sr-d4 {
-    animation-delay: 0.35s;
+.img-zoom img {
+    transition: transform 0.55s ease;
+    width: 100%;
+    display: block;
 }
 
-.sr-d5 {
-    animation-delay: 0.45s;
+.img-zoom:hover img {
+    transform: scale(1.07);
 }
 
-.sr-d6 {
-    animation-delay: 0.55s;
+/* ═══════════════════════════════════════════════════════════
+   12. CONTENT PAGE HERO — stat counter animation
+   ═══════════════════════════════════════════════════════════ */
+@keyframes statReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.stat-reveal {
+    animation: statReveal 0.6s cubic-bezier(.34, 1.56, .64, 1) both;
+}
+
+.stat-d1 {
+    animation-delay: 0.3s;
+}
+
+.stat-d2 {
+    animation-delay: 0.5s;
+}
+
+.stat-d3 {
+    animation-delay: 0.7s;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   13. GRADIENT SWEEP (feed card accent hover)
+   ═══════════════════════════════════════════════════════════ */
+@keyframes gradientSweep {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.gradient-animated {
+    background: linear-gradient(270deg, var(--primary-color), var(--secondary-color-1), #7c3aed, var(--secondary-color-2));
+    background-size: 300% 300%;
+    animation: gradientSweep 5s ease infinite;
 }

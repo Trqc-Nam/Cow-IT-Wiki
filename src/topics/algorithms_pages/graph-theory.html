@@ -50,7 +50,21 @@
             <li>Lý Thuyết Đồ Thị</li>
         </ul>
 
-        <div class="page-layout fade-in-up delay-1">
+        <!-- ARTICLE HERO -->
+        <div class="article-hero fade-in-up" style="background:linear-gradient(135deg,#1e1b4b,#7c3aed);">
+            <div class="article-hero__bg"
+                style="background-image:url('../../images/algorithms/7-bridges-of-konigsberg.jpg');"></div>
+            <div class="article-hero__overlay"></div>
+            <div class="article-hero__icon">🕸️</div>
+            <div class="article-hero__content slide-in-left">
+                <span class="tag tag--algo" style="margin-bottom:10px;">⚙️ Thuật Toán · Graph</span>
+                <h1>Một Vài Bài Toán Lý Thuyết Đồ Thị Rối Não</h1>
+                <p>Từ bài toán 7 cây cầu Königsberg của Euler đến thuật toán Dijkstra — nền tảng của Google Maps và mọi
+                    hệ thống định tuyến.</p>
+            </div>
+        </div>
+
+        <div class="page-layout fade-in-up delay-2">
             <aside class="sidebar glass-card glass">
                 <h3 class="sidebar__title">📋 Mục lục</h3>
                 <ul class="sidebar__list">
@@ -63,197 +77,148 @@
             </aside>
 
             <article class="article-content glass-card glass">
-                <span class="tag tag--algo">🕸️ Thuật Toán · Table</span>
-                <h1 class="glow-text" style="margin-top:12px;">🕸️ Một Vài Bài Toán Lý Thuyết Đồ Thị Rối Não</h1>
-
                 <h2 id="modau">1. Lý thuyết đồ thị là gì?</h2>
-                <p>Lý thuyết đồ thị là một nhánh của toán học rời rạc và khoa học máy tính, chuyên nghiên cứu về các
-                    mạng lưới kết nối. Trái với chữ "đồ thị" (Graph) thường làm ta liên tưởng đến trục tọa độ Oxy hay
-                    biểu đồ hình tròn, Đồ thị ở đây mang ý nghĩa hoàn toàn khác: <strong>Sự kết nối giữa các thực
-                        thể</strong>.</p>
-                <p>Môn học này ra đời một cách đầy tình cờ vào thế kỷ 18 tại thành phố Königsberg. Người dân ở đây có
-                    một câu đố: <em>"Làm sao để đi dạo qua đúng 7 cây cầu của thành phố, mỗi cầu đi đúng 1 lần và trở về
-                        điểm xuất phát?"</em></p>
-                <p>Cho đến khi nhà toán học thiên tài <strong>Leonhard Euler</strong> xuất hiện. Thay vì đi thử nghiệm
-                    thực tế, ông làm một việc chưa ai từng làm: <strong>Gạt bỏ mọi chi tiết thừa</strong>. Ông nhận ra
-                    kích thước hòn đảo hay độ dài cây cầu không quan trọng. Thứ duy nhất quan trọng là <strong>các điểm
-                        giao cắt (Đỉnh)</strong> và <strong>sự kết nối (Cạnh)</strong>. Ngay lúc đó, Lý thuyết đồ thị ra
-                    đời!</p>
+                <p>Lý thuyết đồ thị là một nhánh của toán học rời rạc, chuyên nghiên cứu về các <strong>mạng lưới kết
+                        nối</strong>. Nó ra đời vào thế kỷ 18 từ một câu đố thú vị: <em>"Làm sao để đi qua đúng 7 cây
+                        cầu của thành phố Königsberg, mỗi cầu đúng 1 lần và trở về điểm xuất phát?"</em></p>
+                <p>Nhà toán học <strong>Leonhard Euler</strong> đã giải quyết bài toán này bằng cách trừu tượng hoá: Gạt
+                    bỏ mọi chi tiết thừa, chỉ giữ lại <strong>Đỉnh</strong> (ngã tư) và <strong>Cạnh</strong> (con
+                    đường). Ngay lúc đó, Lý thuyết đồ thị ra đời!</p>
 
-                <blockquote>
-                    <em>"Bản chất của vũ trụ không nằm ở bản thân các vật thể, mà nằm ở cách chúng kết nối với
-                        nhau."</em>
-                    — Triết lý của Lý thuyết đồ thị
-                </blockquote>
-
-                <p>Một Đồ thị (Graph) luôn được định nghĩa bằng <code>G = (V, E)</code>, trong đó:</p>
-                <ol>
-                    <li><strong>Đỉnh (Vertex – V):</strong> Là các thực thể độc lập. Có thể là một ngã tư đường, một máy
-                        tính, hoặc một tài khoản Facebook cá nhân.</li>
-                    <li><strong>Cạnh (Edge – E):</strong> Là mối liên kết giữa 2 Đỉnh. Nếu là đường 2 chiều (bạn bè
-                        Facebook), ta gọi là <em>Đồ thị vô hướng</em>. Nếu là đường 1 chiều (Follow trên Instagram), ta
-                        gọi là <em>Đồ thị có hướng</em>.</li>
-                </ol>
-
-                <div class="img-zoom">
+                <div class="img-zoom slide-in-left">
                     <img src="../../images/algorithms/7-bridges-of-konigsberg.jpg"
                         alt="Bản đồ 7 cây cầu Königsberg và mô hình đồ thị tương ứng">
                 </div>
+                <p><em>📸 Bài toán 7 cây cầu Königsberg — khởi nguồn của Lý thuyết đồ thị.</em></p>
 
-                <h2 id="dijkstra">2. Phân tích bài toán: Tìm đường đi ngắn nhất (Dijkstra)</h2>
-                <p>Bạn đang ở ngã tư <code>S</code> và muốn đi đến ngã tư <code>D</code> trong một thành phố có
-                    <code>N</code> ngã tư. Giữa các ngã tư có các con đường tốn thời gian di chuyển khác nhau gọi là
-                    <strong>Trọng số (Weight)</strong>. Làm sao để tìm ra lộ trình tốn ít thời gian nhất?</p>
-                <p>Dijkstra thuộc họ thuật toán Tham lam (Greedy). Nguyên lý cốt lõi là thao tác gọi là <strong>Lan
-                        truyền (Relaxation)</strong>. Ta gọi <code>dist[u]</code> là khoảng cách ngắn nhất từ đỉnh gốc
-                    <code>S</code> đến đỉnh <code>u</code>.</p>
-                <p>Khi đứng ở đỉnh <code>u</code> và nhìn sang đỉnh hàng xóm <code>v</code> (cạnh có trọng số
-                    <code>w</code>), ta tự hỏi: <em>"Liệu đi từ S đến u, rồi đi thêm w đến v, có nhanh hơn không?"</em>
-                </p>
-                <pre><code>// Công thức Relaxation kinh điển:
+                <blockquote><em>"Bản chất của vũ trụ không nằm ở bản thân các vật thể, mà nằm ở cách chúng kết nối với
+                        nhau."</em></blockquote>
+
+                <p>Một Đồ thị <code>G = (V, E)</code>:</p>
+                <ol>
+                    <li><strong>Đỉnh (Vertex – V):</strong> Các thực thể độc lập (ngã tư, máy tính, tài khoản
+                        Facebook...).</li>
+                    <li><strong>Cạnh (Edge – E):</strong> Mối liên kết giữa 2 Đỉnh. Vô hướng (bạn bè Facebook) hoặc có
+                        hướng (follow Instagram).</li>
+                </ol>
+
+                <h2 id="dijkstra">2. Phân tích: Tìm đường đi ngắn nhất (Dijkstra)</h2>
+                <p>Bạn đang ở ngã tư <code>S</code> và muốn đến ngã tư <code>D</code> trong thời gian ngắn nhất.
+                    Dijkstra dùng thao tác <strong>Lan truyền (Relaxation)</strong>:</p>
+                <pre><code>// Nếu đi từ S→u→v nhanh hơn đường cũ từ S→v:
 if (dist[u] + w &lt; dist[v]):
     dist[v] = dist[u] + w</code></pre>
 
-                <div class="img-zoom">
+                <div class="img-zoom slide-in-left">
                     <img src="../../images/algorithms/dijkstra.png"
                         alt="Đồ thị minh hoạ thuật toán Dijkstra với 5 đỉnh">
                 </div>
+                <p><em>📸 Đồ thị 5 đỉnh dùng để minh hoạ Dijkstra.</em></p>
 
                 <h2 id="bangchay">3. Bảng chạy tay (Trace Table)</h2>
-                <p>Giả sử ta có đồ thị 5 đỉnh (0, 1, 2, 3, 4). Đỉnh gốc xuất phát là <strong>0</strong>. Các cạnh:
-                    <code>(0→1: 4)</code>, <code>(0→2: 1)</code>, <code>(2→1: 2)</code>, <code>(1→3: 1)</code>,
-                    <code>(2→3: 5)</code>, <code>(3→4: 3)</code>.</p>
-
+                <p>Đồ thị 5 đỉnh (0–4), xuất phát từ đỉnh 0. Cạnh: <code>0→1:4, 0→2:1, 2→1:2, 1→3:1, 2→3:5, 3→4:3</code>
+                </p>
                 <div class="table-wrap">
                     <table>
                         <thead>
                             <tr>
-                                <th>Bước (Chọn đỉnh gần nhất)</th>
+                                <th>Bước</th>
                                 <th>dist[0]</th>
                                 <th>dist[1]</th>
                                 <th>dist[2]</th>
                                 <th>dist[3]</th>
                                 <th>dist[4]</th>
-                                <th>Thao tác Relaxation</th>
+                                <th>Thao tác</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong>Khởi tạo</strong></td>
-                                <td><strong>0</strong></td>
+                                <td>0</td>
                                 <td>∞</td>
                                 <td>∞</td>
                                 <td>∞</td>
                                 <td>∞</td>
-                                <td>Chỉ biết dist[0] = 0.</td>
+                                <td>dist[0]=0</td>
                             </tr>
                             <tr>
-                                <td><strong>Duyệt Đỉnh 0</strong> (dist=0)</td>
+                                <td><strong>Duyệt đỉnh 0</strong></td>
                                 <td>0</td>
                                 <td>4</td>
-                                <td><strong>1</strong></td>
-                                <td>∞</td>
-                                <td>∞</td>
-                                <td>0→1 tốn 4; 0→2 tốn 1. Cập nhật dist[1]=4, dist[2]=1.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Duyệt Đỉnh 2</strong> (dist=1)</td>
-                                <td>0</td>
-                                <td><strong>3</strong></td>
                                 <td>1</td>
-                                <td><strong>6</strong></td>
                                 <td>∞</td>
-                                <td>2→1: 1+2=3 &lt; 4 ✓; 2→3: 1+5=6. Cập nhật dist[1]=3, dist[3]=6.</td>
+                                <td>∞</td>
+                                <td>0→1:4; 0→2:1</td>
                             </tr>
                             <tr>
-                                <td><strong>Duyệt Đỉnh 1</strong> (dist=3)</td>
+                                <td><strong>Duyệt đỉnh 2</strong></td>
                                 <td>0</td>
                                 <td>3</td>
                                 <td>1</td>
-                                <td><strong>4</strong></td>
+                                <td>6</td>
                                 <td>∞</td>
-                                <td>1→3: 3+1=4 &lt; 6 ✓. Cập nhật dist[3]=4.</td>
+                                <td>2→1: 1+2=3✓; 2→3:6</td>
                             </tr>
                             <tr>
-                                <td><strong>Duyệt Đỉnh 3</strong> (dist=4)</td>
+                                <td><strong>Duyệt đỉnh 1</strong></td>
                                 <td>0</td>
                                 <td>3</td>
                                 <td>1</td>
                                 <td>4</td>
-                                <td><strong>7</strong></td>
-                                <td>3→4: 4+3=7. Cập nhật dist[4]=7.</td>
+                                <td>∞</td>
+                                <td>1→3: 3+1=4✓</td>
                             </tr>
                             <tr>
-                                <td><strong>Duyệt Đỉnh 4</strong> (dist=7)</td>
+                                <td><strong>Duyệt đỉnh 3</strong></td>
                                 <td>0</td>
                                 <td>3</td>
                                 <td>1</td>
                                 <td>4</td>
                                 <td>7</td>
-                                <td>Không có đường đi tiếp. Kết thúc!</td>
+                                <td>3→4: 4+3=7</td>
+                            </tr>
+                            <tr>
+                                <td><strong>✅ Kết thúc</strong></td>
+                                <td>0</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>4</td>
+                                <td>7</td>
+                                <td>Lộ trình: 0→2→1→3→4 = 7</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <p><em>📊 Kết quả: Từ 0 đến 4 ngắn nhất tốn <strong>7 đơn vị</strong>. Lộ trình tối ưu: 0 → 2 → 1 → 3 →
-                        4.</em></p>
 
-                <h2 id="code">4. Code Lời giải C++ (Dijkstra với Priority Queue)</h2>
-                <p>Để Dijkstra đạt tốc độ tối ưu <code>O(E log V)</code>, ta sử dụng <strong>Hàng đợi ưu tiên (Priority
-                        Queue)</strong>:</p>
-                <pre><code>#include &lt;iostream&gt;
-#include &lt;vector&gt;
+                <h2 id="code">4. Code C++ — Dijkstra với Priority Queue</h2>
+                <pre><code>#include &lt;vector&gt;
 #include &lt;queue&gt;
 using namespace std;
 const int INF = 1e9;
 
-void dijkstra(int start, int n, vector&lt;vector&lt;pair&lt;int,int&gt;&gt;&gt;&amp; graph) {
+void dijkstra(int start, int n, vector&lt;vector&lt;pair&lt;int,int&gt;&gt;&gt;&amp; g) {
     vector&lt;int&gt; dist(n, INF);
-    // Min-Heap: {khoảng cách, đỉnh}
-    priority_queue&lt;pair&lt;int,int&gt;, vector&lt;pair&lt;int,int&gt;&gt;, greater&lt;pair&lt;int,int&gt;&gt;&gt; pq;
-
+    priority_queue&lt;pair&lt;int,int&gt;, vector&lt;pair&lt;int,int&gt;&gt;, greater&lt;&gt;&gt; pq;
     dist[start] = 0;
     pq.push({0, start});
 
     while (!pq.empty()) {
-        int d = pq.top().first;
-        int u = pq.top().second;
-        pq.pop();
-        if (d &gt; dist[u]) continue;  // Bỏ qua nếu đã tìm đường tốt hơn
-
-        // Lan truyền (Relaxation)
-        for (auto [v, w] : graph[u]) {
+        auto [d, u] = pq.top(); pq.pop();
+        if (d &gt; dist[u]) continue;  // Đã có đường tốt hơn
+        for (auto [v, w] : g[u]) {
             if (dist[u] + w &lt; dist[v]) {
                 dist[v] = dist[u] + w;
                 pq.push({dist[v], v});
             }
         }
     }
-
-    cout &lt;&lt; "Kết quả từ đỉnh " &lt;&lt; start &lt;&lt; ":\n";
-    for (int i = 0; i &lt; n; i++)
-        cout &lt;&lt; "  Đến đỉnh " &lt;&lt; i &lt;&lt; ": " &lt;&lt; dist[i] &lt;&lt; "\n";
-}
-
-int main() {
-    int n = 5;
-    vector&lt;vector&lt;pair&lt;int,int&gt;&gt;&gt; graph(n);
-    graph[0].push_back({1, 4}); graph[0].push_back({2, 1});
-    graph[2].push_back({1, 2}); graph[1].push_back({3, 1});
-    graph[2].push_back({3, 5}); graph[3].push_back({4, 3});
-    dijkstra(0, n, graph);
-    return 0;
 }</code></pre>
 
                 <h2 id="tongket">5. Tổng kết</h2>
-                <p>Lý thuyết đồ thị không chỉ là những thuật toán khô khan như Dijkstra, BFS, DFS hay Kruskal. Nó là một
-                    <strong>cách nhìn nhận thế giới</strong>. Việc làm chủ được cách trừu tượng hóa một vấn đề thực tế
-                    thành các Đỉnh và Cạnh chính là bước chuyển mình từ một Coder gõ phím cơ học trở thành một Kỹ sư
-                    Thiết kế Hệ thống thực thụ.</p>
-                <blockquote>
-                    🌐 <strong>Ứng dụng thực tế:</strong> Google Maps (tìm đường), Facebook (gợi ý bạn bè), Internet
-                    routing (định tuyến gói tin), tất cả đều dựa trên nền tảng của Lý thuyết đồ thị.
-                </blockquote>
+                <p>Lý thuyết đồ thị là một <strong>cách nhìn nhận thế giới</strong>. Việc trừu tượng hoá vấn đề thực tế
+                    thành Đỉnh và Cạnh chính là bước chuyển mình từ Coder thành Kỹ sư Hệ thống thực thụ.</p>
+                <blockquote>🌐 <strong>Ứng dụng thực tế:</strong> Google Maps, gợi ý bạn bè Facebook, định tuyến gói tin
+                    Internet — tất cả đều dựa trên Lý thuyết đồ thị.</blockquote>
             </article>
         </div>
     </main>

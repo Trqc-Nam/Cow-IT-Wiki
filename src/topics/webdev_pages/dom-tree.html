@@ -50,7 +50,22 @@
             <li>Cây DOM Web</li>
         </ul>
 
-        <div class="page-layout fade-in-up delay-1">
+        <!-- ARTICLE HERO -->
+        <div class="article-hero fade-in-up">
+            <div class="article-hero__bg"
+                style="background-image:url('../../images/webdev/dom-tree-diagram.webp');background-size:contain;background-repeat:no-repeat;background-position:right center;">
+            </div>
+            <div class="article-hero__overlay"></div>
+            <div class="article-hero__icon">🌲</div>
+            <div class="article-hero__content slide-in-left">
+                <span class="tag tag--web" style="margin-bottom:10px;">🌐 Web Dev · DOM</span>
+                <h1>Cây DOM Là Gì?</h1>
+                <p>Xương sống của mọi trang web — cấu trúc dữ liệu mà trình duyệt tạo ra khi đọc HTML và cách lập trình
+                    viên tác động vào nó.</p>
+            </div>
+        </div>
+
+        <div class="page-layout fade-in-up delay-2">
             <aside class="sidebar glass-card glass">
                 <h3 class="sidebar__title">📋 Mục lục</h3>
                 <ul class="sidebar__list">
@@ -63,45 +78,35 @@
             </aside>
 
             <article class="article-content glass-card glass">
-                <span class="tag tag--web">🌐 Web Dev</span>
-                <h1 class="glow-text" style="margin-top:12px;">Cây DOM Là Gì? Xương Sống Của Mọi Trang Web</h1>
-
                 <h2 id="modau">1. Mở đầu: Khi trình duyệt "đọc" mã nguồn</h2>
-                <p>Khi bạn viết xong một file HTML, nó thực chất chỉ là một tập tin văn bản thuần túy (text file). Nhưng
-                    khi trình duyệt (Chrome, Edge) mở nó lên, bạn thấy hình ảnh, nút bấm, bố cục. Chuyện gì đã xảy ra ở
-                    giữa?</p>
+                <p>Khi bạn viết xong một file HTML, nó thực chất chỉ là một tập tin văn bản thuần túy. Nhưng khi trình
+                    duyệt mở nó lên, bạn thấy hình ảnh, nút bấm, bố cục. Chuyện gì đã xảy ra ở giữa?</p>
                 <p>Đó là lúc trình duyệt biến những dòng chữ vô tri thành một cấu trúc sống động gọi là
                     <strong>DOM</strong>. Nếu HTML là bản vẽ kiến trúc, thì DOM chính là ngôi nhà đã được xây dựng xong
                     trong bộ nhớ của máy tính.</p>
 
                 <h2 id="dom">2. DOM: Cây gia phả của thế giới Web</h2>
                 <p><strong>DOM</strong> viết tắt của <strong>Document Object Model</strong> (Mô hình Đối tượng Tài
-                    liệu). Nghe có vẻ "hàn lâm", nhưng thực ra nó hoạt động y hệt một <strong>Cây gia phả (Family
-                        Tree)</strong>.</p>
-                <p>Trong một gia đình, chúng ta có Ông bà, Cha mẹ, Con cái, Anh chị em. Trong HTML cũng vậy:</p>
+                    liệu). Nó hoạt động y hệt một <strong>Cây gia phả (Family Tree)</strong>:</p>
                 <ul>
                     <li>Mọi thẻ đều bắt nguồn từ một "Cụ tổ" duy nhất: <code>document</code>.</li>
                     <li>Thẻ <code>&lt;html&gt;</code> là "Ông nội" (Root element).</li>
-                    <li>Thẻ <code>&lt;head&gt;</code> và <code>&lt;body&gt;</code> là hai người con của
-                        <code>&lt;html&gt;</code>. Chúng là anh em ruột (Siblings).</li>
-                    <li>Bên trong <code>&lt;body&gt;</code> lại có các con cháu như <code>&lt;h1&gt;</code>,
+                    <li>Thẻ <code>&lt;head&gt;</code> và <code>&lt;body&gt;</code> là hai người "con" — anh em ruột
+                        (Siblings).</li>
+                    <li>Bên trong <code>&lt;body&gt;</code> lại có các "con cháu" như <code>&lt;h1&gt;</code>,
                         <code>&lt;p&gt;</code>, <code>&lt;div&gt;</code>...</li>
                 </ul>
-                <p>Mối quan hệ "Cha - Con" (Parent - Child) này tạo thành một cấu trúc phân cấp hình cây, nên người ta
-                    gọi là <strong>DOM Tree</strong>.</p>
 
-                <div class="img-zoom">
+                <div class="img-zoom slide-in-left">
                     <img src="../../images/webdev/dom-tree-diagram.webp"
                         alt="Sơ đồ cây DOM – Document, HTML, Head, Body và các node con">
                 </div>
+                <p><em>📸 Sơ đồ cây DOM với các mối quan hệ Cha-Con-Anh em giữa các thẻ HTML.</em></p>
 
                 <h2 id="giaiphau">3. Giải phẫu một Cây DOM qua ví dụ Code</h2>
-                <p>Hãy xem đoạn code HTML đơn giản dưới đây để thấy rõ từng bộ phận của cây:</p>
                 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Cow IT Wiki&lt;/title&gt;
-  &lt;/head&gt;
+  &lt;head&gt;&lt;title&gt;Cow IT Wiki&lt;/title&gt;&lt;/head&gt;
   &lt;body&gt;
     &lt;div class="container"&gt;
       &lt;h1&gt;Xin chào!&lt;/h1&gt;
@@ -110,53 +115,28 @@
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
-                <p>Khi trình duyệt đọc đoạn code trên, nó sẽ dựng nên cây DOM như sau:</p>
                 <ol>
-                    <li><strong>Gốc (Root):</strong> Là thẻ <code>&lt;html&gt;</code>.</li>
-                    <li><strong>Cành lớn (Branches):</strong>
-                        <ul>
-                            <li>Nhánh <code>&lt;head&gt;</code> chứa thẻ con <code>&lt;title&gt;</code>.</li>
-                            <li>Nhánh <code>&lt;body&gt;</code> chứa thẻ con <code>&lt;div&gt;</code>.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Cành nhỏ & Lá (Leaves):</strong>
-                        <ul>
-                            <li>Thẻ <code>&lt;div&gt;</code> là cha của <code>&lt;h1&gt;</code> và
-                                <code>&lt;p&gt;</code>.</li>
-                            <li>Nội dung văn bản bên trong thẻ (ví dụ chữ <em>"Xin chào!"</em>) được gọi là <strong>Text
-                                    Node</strong> – đây chính là những chiếc "lá" cuối cùng.</li>
-                        </ul>
-                    </li>
+                    <li><strong>Gốc (Root):</strong> Thẻ <code>&lt;html&gt;</code>.</li>
+                    <li><strong>Cành lớn:</strong> <code>&lt;head&gt;</code> chứa <code>&lt;title&gt;</code>;
+                        <code>&lt;body&gt;</code> chứa <code>&lt;div&gt;</code>.</li>
+                    <li><strong>Cành nhỏ & Lá:</strong> <code>&lt;div&gt;</code> là cha của <code>&lt;h1&gt;</code> và
+                        <code>&lt;p&gt;</code>. Văn bản bên trong gọi là <strong>Text Node</strong>.</li>
                 </ol>
-                <p>Mỗi thành phần trên cây (thẻ, thuộc tính, văn bản) được gọi chung là một <strong>Nút (Node)</strong>.
-                </p>
 
                 <h2 id="ungdung">4. Tại sao Lập trình viên cần quan tâm đến DOM?</h2>
-                <h3>a. DOM là cầu nối "Thần thánh"</h3>
-                <p>Đây là điểm quan trọng nhất: <strong>HTML là tĩnh, nhưng DOM thì động.</strong></p>
-                <p>Khi bạn muốn trang web thay đổi mà <em>không cần tải lại trang</em> (ví dụ: bấm nút "Like" thì số
-                    lượt like tăng lên), bạn không thể sửa file HTML gốc được. Lúc này, bạn cần một ngôn ngữ lập trình
-                    (thường là JavaScript) để tác động vào DOM.</p>
+                <p><strong>HTML là tĩnh, nhưng DOM thì động.</strong> Khi bạn muốn trang web thay đổi mà <em>không cần
+                        tải lại trang</em>, bạn cần tác động vào DOM thông qua JavaScript:</p>
                 <ul>
-                    <li><strong>HTML:</strong> Tạo ra cây DOM ban đầu.</li>
-                    <li><strong>JavaScript:</strong> Dùng DOM để thêm cành, bẻ cành, đổi màu lá cây ngay lập tức.</li>
+                    <li><strong>CSS:</strong> Bộ chọn <code>.container &gt; p</code> dựa trên mối quan hệ cha-con trong
+                        DOM.</li>
+                    <li><strong>JavaScript:</strong> Lệnh <code>document.getElementById('demo')</code> đi tìm một node
+                        cụ thể trong cây DOM.</li>
                 </ul>
 
-                <h3>b. Sức mạnh của sự kiểm soát</h3>
-                <p>Hiểu rõ cấu trúc cây giúp lập trình viên sử dụng CSS và JS hiệu quả hơn:</p>
-                <ul>
-                    <li><strong>CSS:</strong> Các bộ chọn (Selectors) như <code>.container &gt; p</code> chính là dựa
-                        trên mối quan hệ cha-con trong DOM để tô màu chính xác.</li>
-                    <li><strong>JavaScript:</strong> Các lệnh như <code>document.getElementById('demo')</code> chính là
-                        cách ta đi tìm một chiếc lá cụ thể trong rừng cây rậm rạp để chỉnh sửa nó.</li>
-                </ul>
-
-                <h2 id="ketluan">5. Kết luận: Từ Tĩnh đến Động</h2>
-                <p>Trong phạm vi dự án <strong>Cow IT</strong>, chúng ta đang xây dựng một website tĩnh hoàn toàn bằng
-                    HTML/CSS. Điều này có nghĩa là cây DOM của chúng ta được "đúc khuôn" ngay từ khi tải trang và không
-                    thay đổi.</p>
-                <p>Tuy nhiên, việc hiểu bản chất DOM là bước đệm không thể thiếu. Nó giống như việc bạn học giải phẫu cơ
-                    thể người trước khi trở thành bác sĩ phẫu thuật vậy.</p>
+                <h2 id="ketluan">5. Kết luận</h2>
+                <p>Trong dự án <strong>Cow IT</strong>, chúng ta xây dựng website tĩnh hoàn toàn bằng HTML/CSS — cây DOM
+                    được "đúc khuôn" ngay từ khi tải trang. Tuy nhiên, hiểu bản chất DOM là bước đệm không thể thiếu để
+                    tiến lên JavaScript và các Framework hiện đại.</p>
                 <blockquote>
                     💡 <strong>"Không có DOM, JavaScript giống như một vị tướng không có quân lính."</strong>
                 </blockquote>

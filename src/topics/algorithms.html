@@ -50,50 +50,57 @@
         </ul>
 
         <div class="bento-grid">
-            <div class="bento__hero glass-card glass fade-in-up" style="min-height:auto;padding:36px 40px;">
+            <div class="bento__hero glass-card glass fade-in-up animated-border"
+                style="min-height:auto;padding:36px 40px;position:relative;overflow:hidden;">
+                <span class="sparkle"></span><span class="sparkle"></span>
                 <div class="bento__hero-text">
-                    <div style="font-size:3rem;margin-bottom:12px;">⚙️</div>
-                    <span class="tag tag--algo">Chủ đề</span>
-                    <h1 class="glow-text" style="margin-top:10px;">Thuật Toán (Algorithms)</h1>
-                    <p style="max-width:600px;opacity:0.85;">Nơi tập hợp những bài toán rối não nhất và các phương pháp
+                    <span class="tag tag--algo pop-in pop-d1">⚙️ Chủ đề Algorithms</span>
+                    <h1 class="hero-title fade-in-up delay-1"
+                        style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-top:10px;">Thuật Toán (Algorithms)</h1>
+                    <p class="hero-sub fade-in-up delay-2">Nơi tập hợp những bài toán rối não nhất và các phương pháp
                         giải tối ưu nhất – từ Quy hoạch động đến Lý thuyết đồ thị.</p>
                 </div>
-            </div>
-
-            <div class="topic-grid scroll-reveal sr-d1" style="grid-column:span 12;">
-                <a href="algorithms_pages/dynamic-programming.html" class="glass-card glass"
-                    style="display:block;text-decoration:none;">
-                    <div style="font-size:2rem;margin-bottom:12px;">⚡</div>
-                    <span class="tag tag--algo">Bài 1</span>
-                    <h3 class="glow-text">Quy Hoạch Động</h3>
-                    <p style="font-size:0.9rem;opacity:0.8;">Kỹ thuật chia bài toán lớn thành bài toán con nhỏ hơn – nền
-                        tảng của mọi kỳ thi học sinh giỏi Tin học.</p>
-                    <span class="read-more">Đọc ngay →</span>
-                </a>
-
-                <a href="algorithms_pages/graph-theory.html" class="glass-card glass"
-                    style="display:block;text-decoration:none;">
-                    <div style="font-size:2rem;margin-bottom:12px;">🕸️</div>
-                    <span class="tag tag--algo">Bài 2</span>
-                    <h3 class="glow-text">Lý Thuyết Đồ Thị</h3>
-                    <p style="font-size:0.9rem;opacity:0.8;">Thuật toán Dijkstra và bảng chạy tay Shortest Path – từ bài
-                        toán 7 cây cầu Königsberg đến Google Maps.</p>
-                    <span class="read-more">Đọc ngay →</span>
-                </a>
-
-                <div class="glass-card glass">
-                    <div style="font-size:2rem;margin-bottom:12px;">💡</div>
-                    <h3 class="glow-text">Đề Xuất Bài Mới</h3>
-                    <p style="font-size:0.9rem;opacity:0.8;margin-bottom:16px;">Bạn muốn tìm hiểu thuật toán nào khác?
-                    </p>
-                    <form action="mailto:tr.qcnam2k8@gmail.com" method="get">
-                        <input type="text" class="form__input" placeholder="Tên thuật toán bạn muốn học..." required
-                            style="margin-bottom:12px;">
-                        <button type="submit" class="btn" style="width:100%;justify-content:center;">📤 Gửi Đề
-                            Xuất</button>
-                    </form>
+                <div class="float-anim" style="flex-shrink:0;">
+                    <img src="../icons/algorithms_i.png" alt="Thuật Toán"
+                        style="max-width:220px;filter:drop-shadow(0 10px 30px rgba(124,58,237,0.5));">
                 </div>
             </div>
+        </div>
+
+        <div class="topic-grid scroll-reveal sr-d1" style="grid-column:span 12;">
+            <a href="algorithms_pages/dynamic-programming.html" class="glass-card glass"
+                style="display:block;text-decoration:none;">
+                <div style="font-size:2rem;margin-bottom:12px;">⚡</div>
+                <span class="tag tag--algo">Bài 1</span>
+                <h3 class="glow-text">Quy Hoạch Động</h3>
+                <p style="font-size:0.9rem;opacity:0.8;">Kỹ thuật chia bài toán lớn thành bài toán con nhỏ hơn – nền
+                    tảng của mọi kỳ thi học sinh giỏi Tin học.</p>
+                <span class="read-more">Đọc ngay →</span>
+            </a>
+
+            <a href="algorithms_pages/graph-theory.html" class="glass-card glass"
+                style="display:block;text-decoration:none;">
+                <div style="font-size:2rem;margin-bottom:12px;">🕸️</div>
+                <span class="tag tag--algo">Bài 2</span>
+                <h3 class="glow-text">Lý Thuyết Đồ Thị</h3>
+                <p style="font-size:0.9rem;opacity:0.8;">Thuật toán Dijkstra và bảng chạy tay Shortest Path – từ bài
+                    toán 7 cây cầu Königsberg đến Google Maps.</p>
+                <span class="read-more">Đọc ngay →</span>
+            </a>
+
+            <div class="glass-card glass">
+                <div style="font-size:2rem;margin-bottom:12px;">💡</div>
+                <h3 class="glow-text">Đề Xuất Bài Mới</h3>
+                <p style="font-size:0.9rem;opacity:0.8;margin-bottom:16px;">Bạn muốn tìm hiểu thuật toán nào khác?
+                </p>
+                <form action="mailto:tr.qcnam2k8@gmail.com" method="get">
+                    <input type="text" class="form__input" placeholder="Tên thuật toán bạn muốn học..." required
+                        style="margin-bottom:12px;">
+                    <button type="submit" class="btn" style="width:100%;justify-content:center;">📤 Gửi Đề
+                        Xuất</button>
+                </form>
+            </div>
+        </div>
         </div>
     </main>
 

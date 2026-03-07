@@ -50,50 +50,56 @@
         </ul>
 
         <div class="bento-grid">
-            <div class="bento__hero glass-card glass fade-in-up" style="min-height:auto;padding:36px 40px;">
+            <div class="bento__hero glass-card glass fade-in-up animated-border"
+                style="min-height:auto;padding:36px 40px;position:relative;overflow:hidden;">
+                <span class="sparkle"></span><span class="sparkle"></span>
                 <div class="bento__hero-text">
-                    <div style="font-size:3rem;margin-bottom:12px;">🌐</div>
-                    <span class="tag tag--web">Chủ đề</span>
-                    <h1 class="glow-text" style="margin-top:10px;">Phát Triển Web</h1>
-                    <p style="max-width:600px;opacity:0.85;">Cuộc hành trình xây dựng thế giới trực tuyến từ những dòng
+                    <span class="tag tag--web pop-in pop-d1">🌐 Chủ đề Web</span>
+                    <h1 class="hero-title fade-in-up delay-1"
+                        style="font-size:clamp(1.6rem,3.5vw,2.6rem);margin-top:10px;">Phát Triển Web</h1>
+                    <p class="hero-sub fade-in-up delay-2">Cuộc hành trình xây dựng thế giới trực tuyến từ những dòng
                         code đầu tiên – lịch sử WWW và cấu trúc nền tảng của mọi trang web.</p>
                 </div>
-            </div>
-
-            <div class="topic-grid scroll-reveal sr-d1" style="grid-column:span 12;">
-                <a href="webdev_pages/www-history.html" class="glass-card glass"
-                    style="display:block;text-decoration:none;">
-                    <div style="font-size:2rem;margin-bottom:12px;">🌍</div>
-                    <span class="tag tag--web">Bài 1</span>
-                    <h3 class="glow-text">Sự Ra Đời Của WWW</h3>
-                    <p style="font-size:0.9rem;opacity:0.8;">Hành trình từ mạng ARPANET đến World Wide Web của Tim
-                        Berners-Lee và 3 công nghệ thay đổi thế giới.</p>
-                    <span class="read-more">Đọc ngay →</span>
-                </a>
-
-                <a href="webdev_pages/dom-tree.html" class="glass-card glass"
-                    style="display:block;text-decoration:none;">
-                    <div style="font-size:2rem;margin-bottom:12px;">🌲</div>
-                    <span class="tag tag--web">Bài 2</span>
-                    <h3 class="glow-text">Cây DOM Là Gì?</h3>
-                    <p style="font-size:0.9rem;opacity:0.8;">Khi trình duyệt đọc mã HTML – DOM Tree, Node, và lý do lập
-                        trình viên phải hiểu cấu trúc này.</p>
-                    <span class="read-more">Đọc ngay →</span>
-                </a>
-
-                <div class="glass-card glass">
-                    <div style="font-size:2rem;margin-bottom:12px;">💡</div>
-                    <h3 class="glow-text">Đề Xuất Bài Mới</h3>
-                    <p style="font-size:0.9rem;opacity:0.8;margin-bottom:16px;">Bạn muốn tìm hiểu khái niệm Web nào
-                        khác?</p>
-                    <form action="mailto:tr.qcnam2k8@gmail.com" method="get">
-                        <input type="text" class="form__input" placeholder="Khái niệm Web bạn muốn học..." required
-                            style="margin-bottom:12px;">
-                        <button type="submit" class="btn" style="width:100%;justify-content:center;">📤 Gửi Đề
-                            Xuất</button>
-                    </form>
+                <div class="float-anim" style="flex-shrink:0;">
+                    <img src="../icons/ui_web.png" alt="Phát Triển Web UI"
+                        style="max-width:220px;filter:drop-shadow(0 10px 30px rgba(14,165,233,0.4));">
                 </div>
             </div>
+        </div>
+
+        <div class="topic-grid scroll-reveal sr-d1" style="grid-column:span 12;">
+            <a href="webdev_pages/www-history.html" class="glass-card glass"
+                style="display:block;text-decoration:none;">
+                <div style="font-size:2rem;margin-bottom:12px;">🌍</div>
+                <span class="tag tag--web">Bài 1</span>
+                <h3 class="glow-text">Sự Ra Đời Của WWW</h3>
+                <p style="font-size:0.9rem;opacity:0.8;">Hành trình từ mạng ARPANET đến World Wide Web của Tim
+                    Berners-Lee và 3 công nghệ thay đổi thế giới.</p>
+                <span class="read-more">Đọc ngay →</span>
+            </a>
+
+            <a href="webdev_pages/dom-tree.html" class="glass-card glass" style="display:block;text-decoration:none;">
+                <div style="font-size:2rem;margin-bottom:12px;">🌲</div>
+                <span class="tag tag--web">Bài 2</span>
+                <h3 class="glow-text">Cây DOM Là Gì?</h3>
+                <p style="font-size:0.9rem;opacity:0.8;">Khi trình duyệt đọc mã HTML – DOM Tree, Node, và lý do lập
+                    trình viên phải hiểu cấu trúc này.</p>
+                <span class="read-more">Đọc ngay →</span>
+            </a>
+
+            <div class="glass-card glass">
+                <div style="font-size:2rem;margin-bottom:12px;">💡</div>
+                <h3 class="glow-text">Đề Xuất Bài Mới</h3>
+                <p style="font-size:0.9rem;opacity:0.8;margin-bottom:16px;">Bạn muốn tìm hiểu khái niệm Web nào
+                    khác?</p>
+                <form action="mailto:tr.qcnam2k8@gmail.com" method="get">
+                    <input type="text" class="form__input" placeholder="Khái niệm Web bạn muốn học..." required
+                        style="margin-bottom:12px;">
+                    <button type="submit" class="btn" style="width:100%;justify-content:center;">📤 Gửi Đề
+                        Xuất</button>
+                </form>
+            </div>
+        </div>
         </div>
     </main>
 

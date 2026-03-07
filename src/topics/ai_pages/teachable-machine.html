@@ -46,76 +46,94 @@
     <main class="main-content">
         <ul class="breadcrumbs fade-in-up">
             <li><a href="../../index.html">🏠 Trang chủ</a></li>
-            <li><a href="../ai.html">AI</a></li>
+            <li><a href="../ai.html">Trí Tuệ Nhân Tạo</a></li>
             <li>Teachable Machine</li>
         </ul>
 
-        <div class="page-layout fade-in-up delay-1">
+        <!-- ARTICLE HERO -->
+        <div class="article-hero fade-in-up" style="background:linear-gradient(135deg,#1e3a8a,#7c3aed);">
+            <div class="article-hero__overlay"></div>
+            <div class="article-hero__icon">🧠</div>
+            <div class="article-hero__content slide-in-left">
+                <span class="tag tag--ai" style="margin-bottom:10px;">🤖 AI · Machine Learning</span>
+                <h1>Teachable Machine</h1>
+                <p>Huấn luyện AI nhận dạng hình ảnh, âm thanh và tư thế người ngay trên trình duyệt — không cần viết một
+                    dòng code nào!</p>
+            </div>
+        </div>
+
+        <div class="page-layout fade-in-up delay-2">
             <aside class="sidebar glass-card glass">
                 <h3 class="sidebar__title">📋 Mục lục</h3>
                 <ul class="sidebar__list">
-                    <li><a href="#intro" class="sidebar__link">📌 1. Giới thiệu</a></li>
-                    <li><a href="#tinh-nang" class="sidebar__link">📌 2. Tính năng</a></li>
-                    <li><a href="#steps" class="sidebar__link">📌 3. Các bước thực hiện</a></li>
-                    <li><a href="#video" class="sidebar__link">🎬 4. Video hướng dẫn</a></li>
+                    <li><a href="#gioi-thieu" class="sidebar__link">📌 1. Giới thiệu</a></li>
+                    <li><a href="#nguyen-ly" class="sidebar__link">📌 2. Nguyên lý hoạt động</a></li>
+                    <li><a href="#thu-nghiem" class="sidebar__link">📌 3. Thực hành</a></li>
+                    <li><a href="#ung-dung" class="sidebar__link">📌 4. Ứng dụng thực tế</a></li>
                 </ul>
             </aside>
 
             <article class="article-content glass-card glass">
-                <span class="tag tag--ai">🤖 AI · Multimedia</span>
-                <h1 class="glow-text" style="margin-top:12px;">Teachable Machine – Thị Giác Máy Tính Trong Tầm Tay</h1>
+                <h2 id="gioi-thieu">1. Teachable Machine là gì?</h2>
+                <p><strong>Teachable Machine</strong> là một công cụ trực tuyến <strong>miễn phí</strong> do Google phát
+                    triển, cho phép bất kỳ ai — dù không biết lập trình — có thể tự tay tạo ra và huấn luyện một mô hình
+                    Machine Learning (ML) chỉ trong vài phút.</p>
+                <p>Thay vì phải viết code hay hiểu sâu về toán học, bạn đơn giản chỉ cần: <strong>Thu thập ví dụ → Huấn
+                        luyện → Xuất mô hình</strong>.</p>
+                <div class="stat-row">
+                    <div class="stat-box stat-reveal stat-d1">
+                        <div class="stat-box__num">3</div>
+                        <div class="stat-box__label">Loại mô hình</div>
+                    </div>
+                    <div class="stat-box stat-reveal stat-d2">
+                        <div class="stat-box__num">&lt;5 phút</div>
+                        <div class="stat-box__label">Để huấn luyện</div>
+                    </div>
+                    <div class="stat-box stat-reveal stat-d3">
+                        <div class="stat-box__num">100%</div>
+                        <div class="stat-box__label">Miễn phí</div>
+                    </div>
+                </div>
 
-                <h2 id="intro">1. Giới thiệu công cụ</h2>
-                <p><strong>Teachable Machine</strong> là một công cụ web dễ sử dụng được phát triển bởi
-                    <strong>Google</strong>, giúp bất kỳ ai cũng có thể khởi tạo các mô hình Machine Learning (Học máy)
-                    một cách nhanh chóng ngay trên trình duyệt – không cần viết code, không cần kiến thức về AI sâu.</p>
-                <p>Đây là một ví dụ điển hình của xu hướng <em>"Democratize AI"</em> – đưa trí tuệ nhân tạo đến tay mọi
-                    người, không chỉ riêng các nhà khoa học máy tính.</p>
-
-                <h2 id="tinh-nang">2. Các tính năng chính</h2>
-                <p>Teachable Machine hỗ trợ 3 loại dự án chính:</p>
+                <h2 id="nguyen-ly">2. Nguyên lý hoạt động — Mạng Nơ-ron trong tầm tay</h2>
+                <p>Bên dưới Teachable Machine là một <strong>Mạng Nơ-ron Tích chập (CNN)</strong> đã được huấn luyện sẵn
+                    với hàng triệu hình ảnh (gọi là Transfer Learning). Khi bạn dạy nó nhận diện "Tay giơ lên" hay "Mặt
+                    cười", bạn đang thực hiện một quá trình gọi là <strong>Fine-tuning</strong>.</p>
                 <ul>
-                    <li>🖼️ <strong>Nhận diện hình ảnh (Image Project):</strong> Huấn luyện AI phân biệt các đối tượng
-                        khác nhau thông qua webcam hoặc file ảnh.</li>
-                    <li>🔊 <strong>Nhận diện âm thanh (Audio Project):</strong> Tạo mô hình nhận dạng giọng nói, tiếng
-                        động, hay các lệnh âm thanh ngắn.</li>
-                    <li>🧍 <strong>Nhận diện tư thế cơ thể (Pose Project):</strong> Phân tích tư thế người dùng qua
-                        camera theo thời gian thực, ứng dụng trong game, yoga, thể dục.</li>
+                    <li>📸 <strong>Image Project:</strong> Nhận diện hình ảnh qua webcam hoặc file upload (phân biệt
+                        người, vật thể, cử chỉ tay...).</li>
+                    <li>🎵 <strong>Audio Project:</strong> Nhận diện âm thanh (tiếng vỗ tay, tiếng huýt sáo, tiếng
+                        noise...).</li>
+                    <li>🧍 <strong>Pose Project:</strong> Nhận diện tư thế cơ thể người (ngồi thẳng, cúi đầu, giơ
+                        tay...).</li>
                 </ul>
 
-                <h2 id="steps">3. Các bước thực hiện</h2>
-                <p>Quy trình sử dụng Teachable Machine để tạo mô hình AI chỉ gồm 3 bước đơn giản:</p>
-                <ol>
-                    <li>
-                        <strong>Thu thập dữ liệu mẫu đầu vào:</strong> Chụp ảnh, ghi âm hoặc quay video bằng webcam để
-                        tạo các lớp (classes) dữ liệu. Ví dụ: lớp "Con mèo" và lớp "Con chó".
-                    </li>
-                    <li>
-                        <strong>Huấn luyện mô hình AI (Train):</strong> Nhấn nút "Train Model" – Teachable Machine sẽ tự
-                        động huấn luyện mạng nơ-ron nhân tạo ngay trên trình duyệt của bạn chỉ trong vài phút.
-                    </li>
-                    <li>
-                        <strong>Xuất và tích hợp (Export):</strong> Sau khi huấn luyện, bạn có thể xuất mô hình dưới
-                        dạng TensorFlow.js, TensorFlow Lite hoặc các định dạng khác để nhúng vào website hoặc ứng dụng
-                        di động.
-                    </li>
-                </ol>
-
-                <h2 id="video">4. Video Minh hoạ – Hướng dẫn Sử dụng</h2>
-                <p>Xem video hướng dẫn chi tiết cách sử dụng Teachable Machine dưới đây:</p>
-                <div style="border-radius:12px;overflow:hidden;border:1px solid var(--glass-border);margin:20px 0;">
-                    <iframe width="100%" height="420" src="https://www.youtube.com/embed/T2qQGqZxkD0"
-                        title="Teachable Machine Tutorial – Google" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <p><em>📺 Video: Hướng dẫn cách tạo mô hình nhận dạng hình ảnh với Teachable Machine của Google.</em>
+                <h2 id="thu-nghiem">3. Thực hành: Huấn luyện AI nhận diện tư thế</h2>
+                <p><strong>Bước 1 — Chuẩn bị Classes:</strong> Truy cập <strong>teachablemachine.withgoogle.com</strong>
+                    → chọn <strong>Pose Project</strong> → Đăng ký ít nhất 2 nhãn (VD: "Đúng tư thế" và "Sai tư thế")
                 </p>
+                <p><strong>Bước 2 — Thu thập dữ liệu:</strong> Cho dataset tối thiểu 30-50 ảnh/class để model đủ "thấu
+                    hiểu" đặc điểm. Càng nhiều ảnh đa dạng góc độ, ánh sáng thì model càng chính xác.</p>
+                <p><strong>Bước 3 — Huấn luyện:</strong> Nhấn <strong>"Train Model"</strong>. Teachable Machine sẽ tự
+                    động chạy vài chục epochs huấn luyện. Toàn bộ quá trình diễn ra trên trình duyệt của bạn, không cần
+                    server.</p>
+                <p><strong>Bước 4 — Kiểm tra:</strong> Dùng webcam Test ngay trên trang. Nếu không hài lòng, thêm data
+                    vào các class còn yếu và train lại.</p>
+                <p><strong>Bước 5 — Xuất và tích hợp:</strong> Nhấn Export Model → TensorFlow.js để lấy link nhúng vào
+                    web, hoặc TensorFlow Lite để deploy trên thiết bị di động.</p>
+                <iframe width="1280" height="720" src="https://www.youtube.com/embed/ipWdLj2Xgns" title="How to use Teachable Machine? Cách sử dụng teachable Machine đơn giản nhất" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+                <h2 id="ung-dung">4. Ứng dụng thực tế</h2>
+                <ul>
+                    <li>🏃 <strong>Fitness app:</strong> Đếm số lần push-up, squat qua camera.</li>
+                    <li>♿ <strong>Hỗ trợ người dùng:</strong> Ra lệnh cho máy tính bằng cử chỉ tay.</li>
+                    <li>🌱 <strong>Nông nghiệp:</strong> Nhận diện sâu bệnh trên cây trồng qua ảnh chụp.</li>
+                    <li>🎮 <strong>Game:</strong> Điều khiển nhân vật game bằng tư thế cơ thể.</li>
+                </ul>
                 <blockquote>
-                    <strong>💡 Mẹo hay:</strong> Để mô hình chính xác hơn, hãy cung cấp ít nhất 50–100 ảnh mẫu cho mỗi
-                    lớp và thu thập dữ liệu trong nhiều điều kiện ánh sáng, góc độ khác nhau.
+                    🤯 <strong>Fun Fact:</strong> Toàn bộ quá trình huấn luyện AI mà bạn làm trên Teachable Machine, nếu
+                    thực hiện từ đầu bằng code Python, sẽ cần ít nhất 500+ dòng code và kiến thức Deep Learning chuyên
+                    sâu.
                 </blockquote>
             </article>
         </div>
