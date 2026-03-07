@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quy Hoạch Động - Cow IT</title>
+    <link rel="icon" href="../../icons/icon-main.png" type="image/png">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/animation.css">
+</head>
+
+<body class="master-layout">
+    <input type="checkbox" id="dark-mode-toggle">
+    <header class="header glass fade-in-up">
+        <div class="header__logo">
+            <img src="../../icons/icon-main.png" alt="Cow IT Logo">
+            <a href="../../index.html">Cow IT</a>
+        </div>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="../../index.html" class="nav__link">🏠 Trang Chủ</a></li>
+                <li class="nav__item">
+                    <a href="#" class="nav__link">📚 Chủ đề ▾</a>
+                    <ul class="nav__dropdown glass">
+                        <li class="nav__dropdown-item"><a href="../ai.html"><span class="dd-icon">🤖</span> Trí Tuệ Nhân
+                                Tạo</a></li>
+                        <li class="nav__dropdown-item"><a href="../webdev.html"><span class="dd-icon">🌐</span> Phát
+                                Triển Web</a></li>
+                        <li class="nav__dropdown-item"><a href="../algorithms.html"><span class="dd-icon">⚙️</span>
+                                Thuật Toán</a></li>
+                    </ul>
+                </li>
+                <li class="nav__item"><a href="../../about.html" class="nav__link">👤 Giới Thiệu</a></li>
+            </ul>
+        </nav>
+        <div class="header__actions">
+            <label for="dark-mode-toggle" class="dark-mode-label" title="Chuyển sáng/tối">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </label>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <ul class="breadcrumbs fade-in-up">
+            <li><a href="../../index.html">🏠 Trang chủ</a></li>
+            <li><a href="../algorithms.html">Thuật Toán</a></li>
+            <li>Quy Hoạch Động</li>
+        </ul>
+
+        <div class="page-layout fade-in-up delay-1">
+            <aside class="sidebar glass-card glass">
+                <h3 class="sidebar__title">📋 Mục lục</h3>
+                <ul class="sidebar__list">
+                    <li><a href="#khainiem" class="sidebar__link">📌 1. Khái niệm DP</a></li>
+                    <li><a href="#dac-diem" class="sidebar__link">📌 2. Đặc điểm</a></li>
+                    <li><a href="#bangso" class="sidebar__link">📊 3. Bảng phương án</a></li>
+                    <li><a href="#vi-du" class="sidebar__link">📌 4. Ví dụ minh hoạ</a></li>
+                </ul>
+            </aside>
+
+            <article class="article-content glass-card glass">
+                <span class="tag tag--algo">⚡ Thuật Toán · Table</span>
+                <h1 class="glow-text" style="margin-top:12px;">Một Vài Bài Toán Quy Hoạch Động Thú Vị</h1>
+
+                <h2 id="khainiem">1. Quy hoạch động là gì?</h2>
+                <p><strong>Quy hoạch động (Dynamic Programming – DP)</strong> là một kĩ thuật thuật toán dùng để giải
+                    quyết một bài toán phức tạp bằng cách chia nó thành các <a href="#dac-diem">bài toán con nhỏ
+                        hơn</a>, lưu trữ kết quả của các bài toán con này để tối ưu quá trình tính toán tổng thể.</p>
+                <p>Thay vì tính đi tính lại cùng một kết quả nhiều lần (như đệ quy ngây thơ), DP "ghi nhớ" (memoize) các
+                    kết quả đã tính vào một bảng (mảng), giúp giảm độ phức tạp từ hàm mũ xuống còn đa thức.</p>
+
+                <h2 id="dac-diem">2. Đặc điểm nhận dạng bài toán DP</h2>
+                <p>Một bài toán phù hợp với DP thường có 2 tính chất sau:</p>
+                <ul>
+                    <li>🔁 <strong>Bài toán con gối nhau (Overlapping Subproblems):</strong> Cùng một bài toán con được
+                        giải nhiều lần. Nếu lưu kết quả lại, ta tránh tính lại.</li>
+                    <li>🎯 <strong>Cấu trúc con tối ưu (Optimal Substructure):</strong> Lời giải tối ưu của bài toán lớn
+                        được xây dựng từ lời giải tối ưu của các bài toán con.</li>
+                </ul>
+
+                <h2 id="bangso">3. Bảng phương án mẫu</h2>
+                <p>Bảng dưới đây minh hoạ bảng phương án cơ bản của quy hoạch động dạng mảng 2 chiều
+                    <code>dp[i][j]</code>. Trong bài toán Túi ba lô (Knapsack), <code>dp[i][j]</code> là giá trị tối đa
+                    khi xét <code>i</code> đồ vật đầu tiên với sức chứa <code>j</code>:</p>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>i \ j (Sức chứa)</th>
+                                <th>0</th>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>4</th>
+                                <th>5</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>0 (Không đồ vật)</strong></td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td><strong>1 (W=2, V=6)</strong></td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>6</td>
+                                <td>6</td>
+                                <td>6</td>
+                                <td>6</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2 (W=2, V=10)</strong></td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>16</td>
+                                <td>16</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3 (W=3, V=12)</strong></td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>10</td>
+                                <td>12</td>
+                                <td>16</td>
+                                <td>22</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><em>📊 Bảng DP bài toán Túi ba lô 0/1 với 3 đồ vật và sức chứa tối đa 5.</em></p>
+
+                <h2 id="vi-du">4. Ví dụ: Bài toán Fibonacci với DP</h2>
+                <p>Bài toán Fibonacci là ví dụ kinh điển nhất để minh họa sự khác biệt giữa đệ quy thông thường và DP:
+                </p>
+                <pre><code>// DP Bottom-up: Tính Fibonacci
+// Độ phức tạp: O(n) time, O(n) space
+int fibonacci(int n) {
+    int dp[n+1];
+    dp[0] = 0;
+    dp[1] = 1;
+    for (int i = 2; i &lt;= n; i++) {
+        dp[i] = dp[i-1] + dp[i-2];  // Công thức truy hồi
+    }
+    return dp[n];
+}
+// fibonacci(10) = 55
+// Không tính lại bất kỳ giá trị nào!</code></pre>
+
+                <blockquote>
+                    💡 <strong>Tư duy cốt lõi của DP:</strong> <em>"Thay vì hỏi 'Tôi có thể làm gì từ đây?', hãy hỏi
+                        'Tôi đã đến đây bằng cách nào?' và lưu lại câu trả lời."</em>
+                </blockquote>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer glass">
+        <div class="footer__inner">
+            <div class="footer__brand">🐄 Cow IT Wiki</div>
+            <div class="footer__links">
+                <a href="mailto:tr.qcnam2k8@gmail.com">📧 tr.qcnam2k8@gmail.com</a>
+                <a href="https://www.facebook.com/truongquocnam.2k8" target="_blank" rel="noopener">📘 Trương Quốc
+                    Nam</a>
+            </div>
+            <div class="footer__copy">© Trương Quốc Nam · since 2026 · 100% Thuần HTML &amp; CSS · No JS</div>
+        </div>
+    </footer>
+</body>
+
+</html>

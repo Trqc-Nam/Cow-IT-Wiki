@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cây DOM - Cow IT</title>
+    <link rel="icon" href="../../icons/icon-main.png" type="image/png">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/animation.css">
+</head>
+
+<body class="master-layout">
+    <input type="checkbox" id="dark-mode-toggle">
+    <header class="header glass fade-in-up">
+        <div class="header__logo">
+            <img src="../../icons/icon-main.png" alt="Cow IT Logo">
+            <a href="../../index.html">Cow IT</a>
+        </div>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="../../index.html" class="nav__link">🏠 Trang Chủ</a></li>
+                <li class="nav__item">
+                    <a href="#" class="nav__link">📚 Chủ đề ▾</a>
+                    <ul class="nav__dropdown glass">
+                        <li class="nav__dropdown-item"><a href="../ai.html"><span class="dd-icon">🤖</span> Trí Tuệ Nhân
+                                Tạo</a></li>
+                        <li class="nav__dropdown-item"><a href="../webdev.html"><span class="dd-icon">🌐</span> Phát
+                                Triển Web</a></li>
+                        <li class="nav__dropdown-item"><a href="../algorithms.html"><span class="dd-icon">⚙️</span>
+                                Thuật Toán</a></li>
+                    </ul>
+                </li>
+                <li class="nav__item"><a href="../../about.html" class="nav__link">👤 Giới Thiệu</a></li>
+            </ul>
+        </nav>
+        <div class="header__actions">
+            <label for="dark-mode-toggle" class="dark-mode-label" title="Chuyển sáng/tối">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </label>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <ul class="breadcrumbs fade-in-up">
+            <li><a href="../../index.html">🏠 Trang chủ</a></li>
+            <li><a href="../webdev.html">Phát Triển Web</a></li>
+            <li>Cây DOM Web</li>
+        </ul>
+
+        <div class="page-layout fade-in-up delay-1">
+            <aside class="sidebar glass-card glass">
+                <h3 class="sidebar__title">📋 Mục lục</h3>
+                <ul class="sidebar__list">
+                    <li><a href="#modau" class="sidebar__link">📌 1. Mở đầu</a></li>
+                    <li><a href="#dom" class="sidebar__link">📌 2. DOM là gì?</a></li>
+                    <li><a href="#giaiphau" class="sidebar__link">📌 3. Giải phẫu cây DOM</a></li>
+                    <li><a href="#ungdung" class="sidebar__link">📌 4. Vai trò với Dev</a></li>
+                    <li><a href="#ketluan" class="sidebar__link">📌 5. Kết luận</a></li>
+                </ul>
+            </aside>
+
+            <article class="article-content glass-card glass">
+                <span class="tag tag--web">🌐 Web Dev</span>
+                <h1 class="glow-text" style="margin-top:12px;">Cây DOM Là Gì? Xương Sống Của Mọi Trang Web</h1>
+
+                <h2 id="modau">1. Mở đầu: Khi trình duyệt "đọc" mã nguồn</h2>
+                <p>Khi bạn viết xong một file HTML, nó thực chất chỉ là một tập tin văn bản thuần túy (text file). Nhưng
+                    khi trình duyệt (Chrome, Edge) mở nó lên, bạn thấy hình ảnh, nút bấm, bố cục. Chuyện gì đã xảy ra ở
+                    giữa?</p>
+                <p>Đó là lúc trình duyệt biến những dòng chữ vô tri thành một cấu trúc sống động gọi là
+                    <strong>DOM</strong>. Nếu HTML là bản vẽ kiến trúc, thì DOM chính là ngôi nhà đã được xây dựng xong
+                    trong bộ nhớ của máy tính.</p>
+
+                <h2 id="dom">2. DOM: Cây gia phả của thế giới Web</h2>
+                <p><strong>DOM</strong> viết tắt của <strong>Document Object Model</strong> (Mô hình Đối tượng Tài
+                    liệu). Nghe có vẻ "hàn lâm", nhưng thực ra nó hoạt động y hệt một <strong>Cây gia phả (Family
+                        Tree)</strong>.</p>
+                <p>Trong một gia đình, chúng ta có Ông bà, Cha mẹ, Con cái, Anh chị em. Trong HTML cũng vậy:</p>
+                <ul>
+                    <li>Mọi thẻ đều bắt nguồn từ một "Cụ tổ" duy nhất: <code>document</code>.</li>
+                    <li>Thẻ <code>&lt;html&gt;</code> là "Ông nội" (Root element).</li>
+                    <li>Thẻ <code>&lt;head&gt;</code> và <code>&lt;body&gt;</code> là hai người con của
+                        <code>&lt;html&gt;</code>. Chúng là anh em ruột (Siblings).</li>
+                    <li>Bên trong <code>&lt;body&gt;</code> lại có các con cháu như <code>&lt;h1&gt;</code>,
+                        <code>&lt;p&gt;</code>, <code>&lt;div&gt;</code>...</li>
+                </ul>
+                <p>Mối quan hệ "Cha - Con" (Parent - Child) này tạo thành một cấu trúc phân cấp hình cây, nên người ta
+                    gọi là <strong>DOM Tree</strong>.</p>
+
+                <div class="img-zoom">
+                    <img src="../../images/webdev/dom-tree-diagram.webp"
+                        alt="Sơ đồ cây DOM – Document, HTML, Head, Body và các node con">
+                </div>
+
+                <h2 id="giaiphau">3. Giải phẫu một Cây DOM qua ví dụ Code</h2>
+                <p>Hãy xem đoạn code HTML đơn giản dưới đây để thấy rõ từng bộ phận của cây:</p>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Cow IT Wiki&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+      &lt;h1&gt;Xin chào!&lt;/h1&gt;
+      &lt;p&gt;Đây là bài viết về DOM.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                <p>Khi trình duyệt đọc đoạn code trên, nó sẽ dựng nên cây DOM như sau:</p>
+                <ol>
+                    <li><strong>Gốc (Root):</strong> Là thẻ <code>&lt;html&gt;</code>.</li>
+                    <li><strong>Cành lớn (Branches):</strong>
+                        <ul>
+                            <li>Nhánh <code>&lt;head&gt;</code> chứa thẻ con <code>&lt;title&gt;</code>.</li>
+                            <li>Nhánh <code>&lt;body&gt;</code> chứa thẻ con <code>&lt;div&gt;</code>.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Cành nhỏ & Lá (Leaves):</strong>
+                        <ul>
+                            <li>Thẻ <code>&lt;div&gt;</code> là cha của <code>&lt;h1&gt;</code> và
+                                <code>&lt;p&gt;</code>.</li>
+                            <li>Nội dung văn bản bên trong thẻ (ví dụ chữ <em>"Xin chào!"</em>) được gọi là <strong>Text
+                                    Node</strong> – đây chính là những chiếc "lá" cuối cùng.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>Mỗi thành phần trên cây (thẻ, thuộc tính, văn bản) được gọi chung là một <strong>Nút (Node)</strong>.
+                </p>
+
+                <h2 id="ungdung">4. Tại sao Lập trình viên cần quan tâm đến DOM?</h2>
+                <h3>a. DOM là cầu nối "Thần thánh"</h3>
+                <p>Đây là điểm quan trọng nhất: <strong>HTML là tĩnh, nhưng DOM thì động.</strong></p>
+                <p>Khi bạn muốn trang web thay đổi mà <em>không cần tải lại trang</em> (ví dụ: bấm nút "Like" thì số
+                    lượt like tăng lên), bạn không thể sửa file HTML gốc được. Lúc này, bạn cần một ngôn ngữ lập trình
+                    (thường là JavaScript) để tác động vào DOM.</p>
+                <ul>
+                    <li><strong>HTML:</strong> Tạo ra cây DOM ban đầu.</li>
+                    <li><strong>JavaScript:</strong> Dùng DOM để thêm cành, bẻ cành, đổi màu lá cây ngay lập tức.</li>
+                </ul>
+
+                <h3>b. Sức mạnh của sự kiểm soát</h3>
+                <p>Hiểu rõ cấu trúc cây giúp lập trình viên sử dụng CSS và JS hiệu quả hơn:</p>
+                <ul>
+                    <li><strong>CSS:</strong> Các bộ chọn (Selectors) như <code>.container &gt; p</code> chính là dựa
+                        trên mối quan hệ cha-con trong DOM để tô màu chính xác.</li>
+                    <li><strong>JavaScript:</strong> Các lệnh như <code>document.getElementById('demo')</code> chính là
+                        cách ta đi tìm một chiếc lá cụ thể trong rừng cây rậm rạp để chỉnh sửa nó.</li>
+                </ul>
+
+                <h2 id="ketluan">5. Kết luận: Từ Tĩnh đến Động</h2>
+                <p>Trong phạm vi dự án <strong>Cow IT</strong>, chúng ta đang xây dựng một website tĩnh hoàn toàn bằng
+                    HTML/CSS. Điều này có nghĩa là cây DOM của chúng ta được "đúc khuôn" ngay từ khi tải trang và không
+                    thay đổi.</p>
+                <p>Tuy nhiên, việc hiểu bản chất DOM là bước đệm không thể thiếu. Nó giống như việc bạn học giải phẫu cơ
+                    thể người trước khi trở thành bác sĩ phẫu thuật vậy.</p>
+                <blockquote>
+                    💡 <strong>"Không có DOM, JavaScript giống như một vị tướng không có quân lính."</strong>
+                </blockquote>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer glass">
+        <div class="footer__inner">
+            <div class="footer__brand">🐄 Cow IT Wiki</div>
+            <div class="footer__links">
+                <a href="mailto:tr.qcnam2k8@gmail.com">📧 tr.qcnam2k8@gmail.com</a>
+                <a href="https://www.facebook.com/truongquocnam.2k8" target="_blank" rel="noopener">📘 Trương Quốc
+                    Nam</a>
+            </div>
+            <div class="footer__copy">© Trương Quốc Nam · since 2026 · 100% Thuần HTML &amp; CSS · No JS</div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sự Ra Đời Của WWW - Cow IT</title>
+    <link rel="icon" href="../../icons/icon-main.png" type="image/png">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/animation.css">
+</head>
+
+<body class="master-layout">
+    <input type="checkbox" id="dark-mode-toggle">
+    <header class="header glass fade-in-up">
+        <div class="header__logo">
+            <img src="../../icons/icon-main.png" alt="Cow IT Logo">
+            <a href="../../index.html">Cow IT</a>
+        </div>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="../../index.html" class="nav__link">🏠 Trang Chủ</a></li>
+                <li class="nav__item">
+                    <a href="#" class="nav__link">📚 Chủ đề ▾</a>
+                    <ul class="nav__dropdown glass">
+                        <li class="nav__dropdown-item"><a href="../ai.html"><span class="dd-icon">🤖</span> Trí Tuệ Nhân
+                                Tạo</a></li>
+                        <li class="nav__dropdown-item"><a href="../webdev.html"><span class="dd-icon">🌐</span> Phát
+                                Triển Web</a></li>
+                        <li class="nav__dropdown-item"><a href="../algorithms.html"><span class="dd-icon">⚙️</span>
+                                Thuật Toán</a></li>
+                    </ul>
+                </li>
+                <li class="nav__item"><a href="../../about.html" class="nav__link">👤 Giới Thiệu</a></li>
+            </ul>
+        </nav>
+        <div class="header__actions">
+            <label for="dark-mode-toggle" class="dark-mode-label" title="Chuyển sáng/tối">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </label>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <ul class="breadcrumbs fade-in-up">
+            <li><a href="../../index.html">🏠 Trang chủ</a></li>
+            <li><a href="../webdev.html">Phát Triển Web</a></li>
+            <li>Sự Ra Đời WWW</li>
+        </ul>
+
+        <div class="page-layout fade-in-up delay-1">
+            <aside class="sidebar glass-card glass">
+                <h3 class="sidebar__title">📋 Mục lục</h3>
+                <ul class="sidebar__list">
+                    <li><a href="#modau" class="sidebar__link">📌 1. Mở đầu</a></li>
+                    <li><a href="#tim" class="sidebar__link">📌 2. Tim Berners-Lee</a></li>
+                    <li><a href="#internet" class="sidebar__link">📌 3. Internet vs WWW</a></li>
+                    <li><a href="#di_san" class="sidebar__link">📌 4. Di sản & Tương lai</a></li>
+                </ul>
+            </aside>
+
+            <article class="article-content glass-card glass">
+                <span class="tag tag--web">🌐 Web Dev · Blockquote</span>
+                <h1 class="glow-text" style="margin-top:12px;">Sự Ra Đời Của WWW: Khi Thế Giới Được Kết Nối Lại</h1>
+
+                <h2 id="modau">1. Mở đầu: Trước khi có "www"</h2>
+                <p>Hãy thử tưởng tượng một thế giới không có Facebook, không có Google, và dĩ nhiên là không có cả
+                    TikTok. Bạn muốn tra cứu thông tin? Hãy đến thư viện. Bạn muốn gửi tài liệu cho đồng nghiệp ở nước
+                    khác? Hãy ra bưu điện. Đó chính xác là thế giới trước năm 1989.</p>
+                <p>Internet đã tồn tại từ những năm 60 (với tên gọi ARPANET), nhưng nó chỉ là một mạng lưới cáp ngầm khô
+                    khan nối các máy tính quân sự và đại học lại với nhau. Nó thiếu một "giao diện" để con người có thể
+                    lướt đi trên đó. Và rồi, một kỹ sư người Anh tại CERN (Tổ chức Nghiên cứu Hạt nhân Châu Âu) đã thay
+                    đổi tất cả.</p>
+
+                <h2 id="tim">2. Tim Berners-Lee và chiếc máy tính NeXT huyền thoại</h2>
+                <p>Vào cuối thập niên 80, <strong>Tim Berners-Lee</strong> nhận thấy một vấn đề nhức nhối tại CERN: Các
+                    nhà khoa học đến từ khắp nơi trên thế giới mang theo những loại máy tính khác nhau, phần mềm khác
+                    nhau. Họ không thể chia sẻ dữ liệu nghiên cứu một cách dễ dàng.</p>
+                <p>Tim nảy ra ý tưởng về một hệ thống thông tin toàn cầu, nơi các tài liệu được liên kết với nhau bằng
+                    các "siêu liên kết" (hypertext). Ông gọi dự án này là <strong>World Wide Web</strong>.</p>
+                <p>Trên chiếc máy tính NeXT Cube (một sản phẩm của Steve Jobs khi rời Apple), Tim đã viết nên 3 công
+                    nghệ nền tảng mà chúng ta vẫn dùng đến tận ngày nay:</p>
+                <ol>
+                    <li><strong>HTML:</strong> Ngôn ngữ đánh dấu để tạo nên trang web.</li>
+                    <li><strong>URI (sau này là URL):</strong> Địa chỉ để tìm trang web.</li>
+                    <li><strong>HTTP:</strong> Giao thức để gửi và nhận trang web.</li>
+                </ol>
+
+                <div class="img-zoom">
+                    <img src="../../images/webdev/first-web-server-next.jpg"
+                        alt="Chiếc máy tính NeXT của Tim Berners-Lee tại CERN – Máy chủ Web đầu tiên">
+                </div>
+                <p><em>📸 Chiếc máy tính NeXT của Tim Berners-Lee tại CERN – Máy chủ Web (Web Server) đầu tiên trên thế
+                        giới.</em></p>
+
+                <p>Ngày <strong>06/08/1991</strong>, trang web đầu tiên trên thế giới chính thức được đưa lên mạng
+                    (online). Nó cực kỳ đơn sơ, chỉ toàn chữ đen trên nền trắng, hướng dẫn mọi người cách sử dụng Web.
+                    Nhưng đó là tia lửa khởi đầu cho vụ nổ Big Bang về thông tin.</p>
+
+                <blockquote>
+                    <em>"Sức mạnh của Web nằm ở tính phổ quát của nó. Việc mọi người có thể truy cập bất kể họ đang dùng
+                        phần cứng gì, phần mềm gì hay ngôn ngữ nào... là điều cốt yếu."</em>
+                    <br>— <strong>Sir Tim Berners-Lee</strong>
+                </blockquote>
+
+                <h2 id="internet">3. Internet và WWW: Hai khái niệm hoàn toàn khác nhau</h2>
+                <p>Rất nhiều người (thậm chí cả dân IT mới vào nghề) thường dùng lẫn lộn hai từ "Internet" và "World
+                    Wide Web". Thực tế, chúng là hai thứ riêng biệt.</p>
+                <p>Hãy hình dung thế này cho dễ hiểu:</p>
+                <ul>
+                    <li>🛣️ <strong>Internet</strong> là <strong>cơ sở hạ tầng</strong> (như hệ thống đường xá, cầu
+                        cống, cáp quang dưới biển). Nó kết nối các máy tính lại với nhau về mặt vật lý.</li>
+                    <li>🚗 <strong>World Wide Web (WWW)</strong> là <strong>dịch vụ chạy trên đó</strong> (như những
+                        chiếc xe hơi, cửa hàng, siêu thị vận hành trên con đường đó).</li>
+                </ul>
+                <p>Nếu Internet là phần cứng của mạng lưới, thì Web là phần mềm giúp chúng ta xem nội dung. Chúng ta
+                    dùng Internet để truy cập Web, nhưng Internet còn dùng để gửi Email, truyền tải File (FTP) hay chơi
+                    game Online mà không cần trình duyệt.</p>
+
+                <blockquote>
+                    <strong>📖 Định nghĩa kỹ thuật:</strong><br>
+                    <em>"World Wide Web (WWW) là một không gian thông tin toàn cầu mà mọi tài liệu và nguồn tài nguyên
+                        khác được định danh bằng URL, liên kết với nhau bởi các siêu liên kết (hyperlinks) và có thể
+                        truy cập thông qua mạng Internet."</em>
+                </blockquote>
+
+                <h2 id="di_san">4. Di sản và Tương lai</h2>
+                <p>Từ trang web đơn sơ năm 1991, World Wide Web đã phát triển rực rỡ qua các giai đoạn:</p>
+                <ul>
+                    <li>📰 <strong>Web 1.0:</strong> Web tĩnh, chỉ đọc (như trang báo giấy điện tử).</li>
+                    <li>💬 <strong>Web 2.0:</strong> Web tương tác, mạng xã hội (nơi người dùng tạo ra nội dung).</li>
+                    <li>🔮 <strong>Web 3.0:</strong> Web ngữ nghĩa và phi tập trung (tương lai đang hướng tới).</li>
+                </ul>
+                <p>Ngày nay, khi bạn đang đọc bài viết này, trình duyệt của bạn vẫn đang âm thầm thực hiện đúng những gì
+                    Tim Berners-Lee đã thiết kế cách đây hơn 30 năm: Gửi một yêu cầu HTTP, nhận về mã HTML và hiển thị
+                    nó lên màn hình.</p>
+                <p>Hiểu về nguồn gốc của Web giúp chúng ta trân trọng những dòng code mình viết ra. Mỗi thẻ
+                    <code>&lt;a&gt;</code> bạn gõ xuống không chỉ là một liên kết, nó là sự kết nối tri thức nhân loại.
+                </p>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer glass">
+        <div class="footer__inner">
+            <div class="footer__brand">🐄 Cow IT Wiki</div>
+            <div class="footer__links">
+                <a href="mailto:tr.qcnam2k8@gmail.com">📧 tr.qcnam2k8@gmail.com</a>
+                <a href="https://www.facebook.com/truongquocnam.2k8" target="_blank" rel="noopener">📘 Trương Quốc
+                    Nam</a>
+            </div>
+            <div class="footer__copy">© Trương Quốc Nam · since 2026 · 100% Thuần HTML &amp; CSS · No JS</div>
+        </div>
+    </footer>
+</body>
+
+</html>

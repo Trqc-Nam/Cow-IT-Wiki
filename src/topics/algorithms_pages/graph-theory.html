@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lý Thuyết Đồ Thị - Cow IT</title>
+    <link rel="icon" href="../../icons/icon-main.png" type="image/png">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/animation.css">
+</head>
+
+<body class="master-layout">
+    <input type="checkbox" id="dark-mode-toggle">
+    <header class="header glass fade-in-up">
+        <div class="header__logo">
+            <img src="../../icons/icon-main.png" alt="Cow IT Logo">
+            <a href="../../index.html">Cow IT</a>
+        </div>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="../../index.html" class="nav__link">🏠 Trang Chủ</a></li>
+                <li class="nav__item">
+                    <a href="#" class="nav__link">📚 Chủ đề ▾</a>
+                    <ul class="nav__dropdown glass">
+                        <li class="nav__dropdown-item"><a href="../ai.html"><span class="dd-icon">🤖</span> Trí Tuệ Nhân
+                                Tạo</a></li>
+                        <li class="nav__dropdown-item"><a href="../webdev.html"><span class="dd-icon">🌐</span> Phát
+                                Triển Web</a></li>
+                        <li class="nav__dropdown-item"><a href="../algorithms.html"><span class="dd-icon">⚙️</span>
+                                Thuật Toán</a></li>
+                    </ul>
+                </li>
+                <li class="nav__item"><a href="../../about.html" class="nav__link">👤 Giới Thiệu</a></li>
+            </ul>
+        </nav>
+        <div class="header__actions">
+            <label for="dark-mode-toggle" class="dark-mode-label" title="Chuyển sáng/tối">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </label>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <ul class="breadcrumbs fade-in-up">
+            <li><a href="../../index.html">🏠 Trang chủ</a></li>
+            <li><a href="../algorithms.html">Thuật Toán</a></li>
+            <li>Lý Thuyết Đồ Thị</li>
+        </ul>
+
+        <div class="page-layout fade-in-up delay-1">
+            <aside class="sidebar glass-card glass">
+                <h3 class="sidebar__title">📋 Mục lục</h3>
+                <ul class="sidebar__list">
+                    <li><a href="#modau" class="sidebar__link">📌 1. Lý thuyết đồ thị</a></li>
+                    <li><a href="#dijkstra" class="sidebar__link">📌 2. Thuật toán Dijkstra</a></li>
+                    <li><a href="#bangchay" class="sidebar__link">📊 3. Bảng chạy tay</a></li>
+                    <li><a href="#code" class="sidebar__link">💻 4. Code C++</a></li>
+                    <li><a href="#tongket" class="sidebar__link">📌 5. Tổng kết</a></li>
+                </ul>
+            </aside>
+
+            <article class="article-content glass-card glass">
+                <span class="tag tag--algo">🕸️ Thuật Toán · Table</span>
+                <h1 class="glow-text" style="margin-top:12px;">🕸️ Một Vài Bài Toán Lý Thuyết Đồ Thị Rối Não</h1>
+
+                <h2 id="modau">1. Lý thuyết đồ thị là gì?</h2>
+                <p>Lý thuyết đồ thị là một nhánh của toán học rời rạc và khoa học máy tính, chuyên nghiên cứu về các
+                    mạng lưới kết nối. Trái với chữ "đồ thị" (Graph) thường làm ta liên tưởng đến trục tọa độ Oxy hay
+                    biểu đồ hình tròn, Đồ thị ở đây mang ý nghĩa hoàn toàn khác: <strong>Sự kết nối giữa các thực
+                        thể</strong>.</p>
+                <p>Môn học này ra đời một cách đầy tình cờ vào thế kỷ 18 tại thành phố Königsberg. Người dân ở đây có
+                    một câu đố: <em>"Làm sao để đi dạo qua đúng 7 cây cầu của thành phố, mỗi cầu đi đúng 1 lần và trở về
+                        điểm xuất phát?"</em></p>
+                <p>Cho đến khi nhà toán học thiên tài <strong>Leonhard Euler</strong> xuất hiện. Thay vì đi thử nghiệm
+                    thực tế, ông làm một việc chưa ai từng làm: <strong>Gạt bỏ mọi chi tiết thừa</strong>. Ông nhận ra
+                    kích thước hòn đảo hay độ dài cây cầu không quan trọng. Thứ duy nhất quan trọng là <strong>các điểm
+                        giao cắt (Đỉnh)</strong> và <strong>sự kết nối (Cạnh)</strong>. Ngay lúc đó, Lý thuyết đồ thị ra
+                    đời!</p>
+
+                <blockquote>
+                    <em>"Bản chất của vũ trụ không nằm ở bản thân các vật thể, mà nằm ở cách chúng kết nối với
+                        nhau."</em>
+                    — Triết lý của Lý thuyết đồ thị
+                </blockquote>
+
+                <p>Một Đồ thị (Graph) luôn được định nghĩa bằng <code>G = (V, E)</code>, trong đó:</p>
+                <ol>
+                    <li><strong>Đỉnh (Vertex – V):</strong> Là các thực thể độc lập. Có thể là một ngã tư đường, một máy
+                        tính, hoặc một tài khoản Facebook cá nhân.</li>
+                    <li><strong>Cạnh (Edge – E):</strong> Là mối liên kết giữa 2 Đỉnh. Nếu là đường 2 chiều (bạn bè
+                        Facebook), ta gọi là <em>Đồ thị vô hướng</em>. Nếu là đường 1 chiều (Follow trên Instagram), ta
+                        gọi là <em>Đồ thị có hướng</em>.</li>
+                </ol>
+
+                <div class="img-zoom">
+                    <img src="../../images/algorithms/7-bridges-of-konigsberg.jpg"
+                        alt="Bản đồ 7 cây cầu Königsberg và mô hình đồ thị tương ứng">
+                </div>
+
+                <h2 id="dijkstra">2. Phân tích bài toán: Tìm đường đi ngắn nhất (Dijkstra)</h2>
+                <p>Bạn đang ở ngã tư <code>S</code> và muốn đi đến ngã tư <code>D</code> trong một thành phố có
+                    <code>N</code> ngã tư. Giữa các ngã tư có các con đường tốn thời gian di chuyển khác nhau gọi là
+                    <strong>Trọng số (Weight)</strong>. Làm sao để tìm ra lộ trình tốn ít thời gian nhất?</p>
+                <p>Dijkstra thuộc họ thuật toán Tham lam (Greedy). Nguyên lý cốt lõi là thao tác gọi là <strong>Lan
+                        truyền (Relaxation)</strong>. Ta gọi <code>dist[u]</code> là khoảng cách ngắn nhất từ đỉnh gốc
+                    <code>S</code> đến đỉnh <code>u</code>.</p>
+                <p>Khi đứng ở đỉnh <code>u</code> và nhìn sang đỉnh hàng xóm <code>v</code> (cạnh có trọng số
+                    <code>w</code>), ta tự hỏi: <em>"Liệu đi từ S đến u, rồi đi thêm w đến v, có nhanh hơn không?"</em>
+                </p>
+                <pre><code>// Công thức Relaxation kinh điển:
+if (dist[u] + w &lt; dist[v]):
+    dist[v] = dist[u] + w</code></pre>
+
+                <div class="img-zoom">
+                    <img src="../../images/algorithms/dijkstra.png"
+                        alt="Đồ thị minh hoạ thuật toán Dijkstra với 5 đỉnh">
+                </div>
+
+                <h2 id="bangchay">3. Bảng chạy tay (Trace Table)</h2>
+                <p>Giả sử ta có đồ thị 5 đỉnh (0, 1, 2, 3, 4). Đỉnh gốc xuất phát là <strong>0</strong>. Các cạnh:
+                    <code>(0→1: 4)</code>, <code>(0→2: 1)</code>, <code>(2→1: 2)</code>, <code>(1→3: 1)</code>,
+                    <code>(2→3: 5)</code>, <code>(3→4: 3)</code>.</p>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Bước (Chọn đỉnh gần nhất)</th>
+                                <th>dist[0]</th>
+                                <th>dist[1]</th>
+                                <th>dist[2]</th>
+                                <th>dist[3]</th>
+                                <th>dist[4]</th>
+                                <th>Thao tác Relaxation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Khởi tạo</strong></td>
+                                <td><strong>0</strong></td>
+                                <td>∞</td>
+                                <td>∞</td>
+                                <td>∞</td>
+                                <td>∞</td>
+                                <td>Chỉ biết dist[0] = 0.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Duyệt Đỉnh 0</strong> (dist=0)</td>
+                                <td>0</td>
+                                <td>4</td>
+                                <td><strong>1</strong></td>
+                                <td>∞</td>
+                                <td>∞</td>
+                                <td>0→1 tốn 4; 0→2 tốn 1. Cập nhật dist[1]=4, dist[2]=1.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Duyệt Đỉnh 2</strong> (dist=1)</td>
+                                <td>0</td>
+                                <td><strong>3</strong></td>
+                                <td>1</td>
+                                <td><strong>6</strong></td>
+                                <td>∞</td>
+                                <td>2→1: 1+2=3 &lt; 4 ✓; 2→3: 1+5=6. Cập nhật dist[1]=3, dist[3]=6.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Duyệt Đỉnh 1</strong> (dist=3)</td>
+                                <td>0</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td><strong>4</strong></td>
+                                <td>∞</td>
+                                <td>1→3: 3+1=4 &lt; 6 ✓. Cập nhật dist[3]=4.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Duyệt Đỉnh 3</strong> (dist=4)</td>
+                                <td>0</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>4</td>
+                                <td><strong>7</strong></td>
+                                <td>3→4: 4+3=7. Cập nhật dist[4]=7.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Duyệt Đỉnh 4</strong> (dist=7)</td>
+                                <td>0</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>4</td>
+                                <td>7</td>
+                                <td>Không có đường đi tiếp. Kết thúc!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><em>📊 Kết quả: Từ 0 đến 4 ngắn nhất tốn <strong>7 đơn vị</strong>. Lộ trình tối ưu: 0 → 2 → 1 → 3 →
+                        4.</em></p>
+
+                <h2 id="code">4. Code Lời giải C++ (Dijkstra với Priority Queue)</h2>
+                <p>Để Dijkstra đạt tốc độ tối ưu <code>O(E log V)</code>, ta sử dụng <strong>Hàng đợi ưu tiên (Priority
+                        Queue)</strong>:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+using namespace std;
+const int INF = 1e9;
+
+void dijkstra(int start, int n, vector&lt;vector&lt;pair&lt;int,int&gt;&gt;&gt;&amp; graph) {
+    vector&lt;int&gt; dist(n, INF);
+    // Min-Heap: {khoảng cách, đỉnh}
+    priority_queue&lt;pair&lt;int,int&gt;, vector&lt;pair&lt;int,int&gt;&gt;, greater&lt;pair&lt;int,int&gt;&gt;&gt; pq;
+
+    dist[start] = 0;
+    pq.push({0, start});
+
+    while (!pq.empty()) {
+        int d = pq.top().first;
+        int u = pq.top().second;
+        pq.pop();
+        if (d &gt; dist[u]) continue;  // Bỏ qua nếu đã tìm đường tốt hơn
+
+        // Lan truyền (Relaxation)
+        for (auto [v, w] : graph[u]) {
+            if (dist[u] + w &lt; dist[v]) {
+                dist[v] = dist[u] + w;
+                pq.push({dist[v], v});
+            }
+        }
+    }
+
+    cout &lt;&lt; "Kết quả từ đỉnh " &lt;&lt; start &lt;&lt; ":\n";
+    for (int i = 0; i &lt; n; i++)
+        cout &lt;&lt; "  Đến đỉnh " &lt;&lt; i &lt;&lt; ": " &lt;&lt; dist[i] &lt;&lt; "\n";
+}
+
+int main() {
+    int n = 5;
+    vector&lt;vector&lt;pair&lt;int,int&gt;&gt;&gt; graph(n);
+    graph[0].push_back({1, 4}); graph[0].push_back({2, 1});
+    graph[2].push_back({1, 2}); graph[1].push_back({3, 1});
+    graph[2].push_back({3, 5}); graph[3].push_back({4, 3});
+    dijkstra(0, n, graph);
+    return 0;
+}</code></pre>
+
+                <h2 id="tongket">5. Tổng kết</h2>
+                <p>Lý thuyết đồ thị không chỉ là những thuật toán khô khan như Dijkstra, BFS, DFS hay Kruskal. Nó là một
+                    <strong>cách nhìn nhận thế giới</strong>. Việc làm chủ được cách trừu tượng hóa một vấn đề thực tế
+                    thành các Đỉnh và Cạnh chính là bước chuyển mình từ một Coder gõ phím cơ học trở thành một Kỹ sư
+                    Thiết kế Hệ thống thực thụ.</p>
+                <blockquote>
+                    🌐 <strong>Ứng dụng thực tế:</strong> Google Maps (tìm đường), Facebook (gợi ý bạn bè), Internet
+                    routing (định tuyến gói tin), tất cả đều dựa trên nền tảng của Lý thuyết đồ thị.
+                </blockquote>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer glass">
+        <div class="footer__inner">
+            <div class="footer__brand">🐄 Cow IT Wiki</div>
+            <div class="footer__links">
+                <a href="mailto:tr.qcnam2k8@gmail.com">📧 tr.qcnam2k8@gmail.com</a>
+                <a href="https://www.facebook.com/truongquocnam.2k8" target="_blank" rel="noopener">📘 Trương Quốc
+                    Nam</a>
+            </div>
+            <div class="footer__copy">© Trương Quốc Nam · since 2026 · 100% Thuần HTML &amp; CSS · No JS</div>
+        </div>
+    </footer>
+</body>
+
+</html>

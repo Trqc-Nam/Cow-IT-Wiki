@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phát Triển Web - Cow IT</title>
+    <link rel="icon" href="../icons/icon-main.png" type="image/png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/animation.css">
+</head>
+
+<body class="master-layout">
+    <input type="checkbox" id="dark-mode-toggle">
+    <header class="header glass fade-in-up">
+        <div class="header__logo">
+            <img src="../icons/icon-main.png" alt="Cow IT Logo">
+            <a href="../index.html">Cow IT</a>
+        </div>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="../index.html" class="nav__link">🏠 Trang Chủ</a></li>
+                <li class="nav__item">
+                    <a href="#" class="nav__link">📚 Chủ đề ▾</a>
+                    <ul class="nav__dropdown glass">
+                        <li class="nav__dropdown-item"><a href="ai.html"><span class="dd-icon">🤖</span> Trí Tuệ Nhân
+                                Tạo</a></li>
+                        <li class="nav__dropdown-item"><a href="webdev.html"><span class="dd-icon">🌐</span> Phát Triển
+                                Web</a></li>
+                        <li class="nav__dropdown-item"><a href="algorithms.html"><span class="dd-icon">⚙️</span> Thuật
+                                Toán</a></li>
+                    </ul>
+                </li>
+                <li class="nav__item"><a href="../about.html" class="nav__link">👤 Giới Thiệu</a></li>
+            </ul>
+        </nav>
+        <div class="header__actions">
+            <label for="dark-mode-toggle" class="dark-mode-label" title="Chuyển sáng/tối">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </label>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <ul class="breadcrumbs fade-in-up">
+            <li><a href="../index.html">🏠 Trang chủ</a></li>
+            <li>Phát Triển Web</li>
+        </ul>
+
+        <div class="bento-grid">
+            <div class="bento__hero glass-card glass fade-in-up" style="min-height:auto;padding:36px 40px;">
+                <div class="bento__hero-text">
+                    <div style="font-size:3rem;margin-bottom:12px;">🌐</div>
+                    <span class="tag tag--web">Chủ đề</span>
+                    <h1 class="glow-text" style="margin-top:10px;">Phát Triển Web</h1>
+                    <p style="max-width:600px;opacity:0.85;">Cuộc hành trình xây dựng thế giới trực tuyến từ những dòng
+                        code đầu tiên – lịch sử WWW và cấu trúc nền tảng của mọi trang web.</p>
+                </div>
+            </div>
+
+            <div class="topic-grid scroll-reveal sr-d1" style="grid-column:span 12;">
+                <a href="webdev_pages/www-history.html" class="glass-card glass"
+                    style="display:block;text-decoration:none;">
+                    <div style="font-size:2rem;margin-bottom:12px;">🌍</div>
+                    <span class="tag tag--web">Bài 1</span>
+                    <h3 class="glow-text">Sự Ra Đời Của WWW</h3>
+                    <p style="font-size:0.9rem;opacity:0.8;">Hành trình từ mạng ARPANET đến World Wide Web của Tim
+                        Berners-Lee và 3 công nghệ thay đổi thế giới.</p>
+                    <span class="read-more">Đọc ngay →</span>
+                </a>
+
+                <a href="webdev_pages/dom-tree.html" class="glass-card glass"
+                    style="display:block;text-decoration:none;">
+                    <div style="font-size:2rem;margin-bottom:12px;">🌲</div>
+                    <span class="tag tag--web">Bài 2</span>
+                    <h3 class="glow-text">Cây DOM Là Gì?</h3>
+                    <p style="font-size:0.9rem;opacity:0.8;">Khi trình duyệt đọc mã HTML – DOM Tree, Node, và lý do lập
+                        trình viên phải hiểu cấu trúc này.</p>
+                    <span class="read-more">Đọc ngay →</span>
+                </a>
+
+                <div class="glass-card glass">
+                    <div style="font-size:2rem;margin-bottom:12px;">💡</div>
+                    <h3 class="glow-text">Đề Xuất Bài Mới</h3>
+                    <p style="font-size:0.9rem;opacity:0.8;margin-bottom:16px;">Bạn muốn tìm hiểu khái niệm Web nào
+                        khác?</p>
+                    <form action="mailto:tr.qcnam2k8@gmail.com" method="get">
+                        <input type="text" class="form__input" placeholder="Khái niệm Web bạn muốn học..." required
+                            style="margin-bottom:12px;">
+                        <button type="submit" class="btn" style="width:100%;justify-content:center;">📤 Gửi Đề
+                            Xuất</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer glass">
+        <div class="footer__inner">
+            <div class="footer__brand">🐄 Cow IT Wiki</div>
+            <div class="footer__links">
+                <a href="mailto:tr.qcnam2k8@gmail.com">📧 tr.qcnam2k8@gmail.com</a>
+                <a href="https://www.facebook.com/truongquocnam.2k8" target="_blank" rel="noopener">📘 Trương Quốc
+                    Nam</a>
+            </div>
+            <div class="footer__copy">© Trương Quốc Nam · since 2026 · 100% Thuần HTML &amp; CSS · No JS</div>
+        </div>
+    </footer>
+</body>
+
+</html>

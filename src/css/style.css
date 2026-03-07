@@ -1,0 +1,320 @@
+/* css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800;900&display=swap');
+
+:root {
+    --primary-color: #1230ae;
+    --secondary-color-1: #6c48c5;
+    --secondary-color-2: #c68fe6;
+    --bg-color: #fff7f7;
+    --text-color: #333333;
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.25);
+    --neon-glow: rgba(108, 72, 197, 0.35);
+    --input-bg: rgba(255, 255, 255, 0.8);
+    --card-bg: rgba(255, 255, 255, 0.45);
+}
+
+html:has(#dark-mode-toggle:checked) {
+    --bg-color: #0f1033;
+    --text-color: #e8e0ff;
+    --glass-bg: rgba(20, 22, 60, 0.65);
+    --glass-border: rgba(198, 143, 230, 0.15);
+    --neon-glow: rgba(198, 143, 230, 0.5);
+    --input-bg: rgba(20, 22, 60, 0.8);
+    --card-bg: rgba(20, 22, 60, 0.5);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    overflow-x: hidden;
+}
+
+/* Gradient mesh background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(ellipse at 20% 20%, rgba(18, 48, 174, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(108, 72, 197, 0.10) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body>* {
+    position: relative;
+    z-index: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    margin-bottom: .9rem;
+    line-height: 1.3;
+}
+
+html:has(#dark-mode-toggle:checked) h1,
+html:has(#dark-mode-toggle:checked) h2,
+html:has(#dark-mode-toggle:checked) h3,
+html:has(#dark-mode-toggle:checked) h4 {
+    color: var(--secondary-color-2);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+html:has(#dark-mode-toggle:checked) a {
+    color: var(--secondary-color-2);
+}
+
+a:hover {
+    opacity: 0.85;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* ── GLOW TEXT: legible, not blinding ── */
+.glow-text {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color-1) 60%, var(--secondary-color-2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: none;
+}
+
+html:has(#dark-mode-toggle:checked) .glow-text {
+    background: linear-gradient(135deg, #a78bfa 0%, #c68fe6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* ── SCROLL REVEAL (Pure CSS) ── */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.reveal:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.reveal:nth-child(4) {
+    transition-delay: 0.3s;
+}
+
+/* The trick: target with :target or use animation-play-state with @keyframes + animation-delay */
+/* We use IntersectionObserver-free approach: animate with animation-fill-mode
+   The element gets class 'revealed' via a CSS @keyframes when it intersects. */
+@keyframes revealUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* article cards and feed items get this class */
+.scroll-card {
+    animation: revealUp 0.7s ease forwards;
+    opacity: 0;
+}
+
+.scroll-card:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.scroll-card:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.scroll-card:nth-child(3) {
+    animation-delay: 0.25s;
+}
+
+.scroll-card:nth-child(4) {
+    animation-delay: 0.35s;
+}
+
+.scroll-card:nth-child(5) {
+    animation-delay: 0.45s;
+}
+
+.scroll-card:nth-child(6) {
+    animation-delay: 0.55s;
+}
+
+/* Form */
+.form__input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 2px solid var(--glass-border);
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form__input:focus {
+    border-color: var(--secondary-color-1);
+    box-shadow: 0 0 12px var(--neon-glow);
+}
+
+.form__input:not(:placeholder-shown):valid {
+    border-color: #22c55e;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+}
+
+.form__input:not(:placeholder-shown):invalid {
+    border-color: #ef4444;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 28px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color-1));
+    color: #fff !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover {
+    box-shadow: 0 6px 24px rgba(108, 72, 197, 0.5);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--secondary-color-1);
+    color: var(--secondary-color-1) !important;
+}
+
+.btn-outline:hover {
+    background: var(--secondary-color-1);
+    color: #fff !important;
+}
+
+/* ── TAGS / BADGES ── */
+.tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color-1));
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.tag--ai {
+    background: linear-gradient(135deg, #1230ae, #6c48c5);
+}
+
+.tag--web {
+    background: linear-gradient(135deg, #0ea5e9, #6c48c5);
+}
+
+.tag--algo {
+    background: linear-gradient(135deg, #7c3aed, #c026d3);
+}
+
+/* ── READ MORE ARROW ── */
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--secondary-color-1);
+    margin-top: 12px;
+    transition: gap 0.3s;
+}
+
+.read-more:hover {
+    gap: 12px;
+    color: var(--secondary-color-2);
+}
+
+/* ── DIVIDERS ── */
+.section-title {
+    font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+}
+
+.section-title span {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── CODE BLOCKS ── */
+pre {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    padding: 16px 20px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    border: 1px solid var(--glass-border);
+}
+
+code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.88rem;
+    color: var(--secondary-color-2);
+}

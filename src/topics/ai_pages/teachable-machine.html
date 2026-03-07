@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachable Machine - Cow IT</title>
+    <link rel="icon" href="../../icons/icon-main.png" type="image/png">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/animation.css">
+</head>
+
+<body class="master-layout">
+    <input type="checkbox" id="dark-mode-toggle">
+    <header class="header glass fade-in-up">
+        <div class="header__logo">
+            <img src="../../icons/icon-main.png" alt="Cow IT Logo">
+            <a href="../../index.html">Cow IT</a>
+        </div>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="../../index.html" class="nav__link">🏠 Trang Chủ</a></li>
+                <li class="nav__item">
+                    <a href="#" class="nav__link">📚 Chủ đề ▾</a>
+                    <ul class="nav__dropdown glass">
+                        <li class="nav__dropdown-item"><a href="../ai.html"><span class="dd-icon">🤖</span> Trí Tuệ Nhân
+                                Tạo</a></li>
+                        <li class="nav__dropdown-item"><a href="../webdev.html"><span class="dd-icon">🌐</span> Phát
+                                Triển Web</a></li>
+                        <li class="nav__dropdown-item"><a href="../algorithms.html"><span class="dd-icon">⚙️</span>
+                                Thuật Toán</a></li>
+                    </ul>
+                </li>
+                <li class="nav__item"><a href="../../about.html" class="nav__link">👤 Giới Thiệu</a></li>
+            </ul>
+        </nav>
+        <div class="header__actions">
+            <label for="dark-mode-toggle" class="dark-mode-label" title="Chuyển sáng/tối">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </label>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <ul class="breadcrumbs fade-in-up">
+            <li><a href="../../index.html">🏠 Trang chủ</a></li>
+            <li><a href="../ai.html">AI</a></li>
+            <li>Teachable Machine</li>
+        </ul>
+
+        <div class="page-layout fade-in-up delay-1">
+            <aside class="sidebar glass-card glass">
+                <h3 class="sidebar__title">📋 Mục lục</h3>
+                <ul class="sidebar__list">
+                    <li><a href="#intro" class="sidebar__link">📌 1. Giới thiệu</a></li>
+                    <li><a href="#tinh-nang" class="sidebar__link">📌 2. Tính năng</a></li>
+                    <li><a href="#steps" class="sidebar__link">📌 3. Các bước thực hiện</a></li>
+                    <li><a href="#video" class="sidebar__link">🎬 4. Video hướng dẫn</a></li>
+                </ul>
+            </aside>
+
+            <article class="article-content glass-card glass">
+                <span class="tag tag--ai">🤖 AI · Multimedia</span>
+                <h1 class="glow-text" style="margin-top:12px;">Teachable Machine – Thị Giác Máy Tính Trong Tầm Tay</h1>
+
+                <h2 id="intro">1. Giới thiệu công cụ</h2>
+                <p><strong>Teachable Machine</strong> là một công cụ web dễ sử dụng được phát triển bởi
+                    <strong>Google</strong>, giúp bất kỳ ai cũng có thể khởi tạo các mô hình Machine Learning (Học máy)
+                    một cách nhanh chóng ngay trên trình duyệt – không cần viết code, không cần kiến thức về AI sâu.</p>
+                <p>Đây là một ví dụ điển hình của xu hướng <em>"Democratize AI"</em> – đưa trí tuệ nhân tạo đến tay mọi
+                    người, không chỉ riêng các nhà khoa học máy tính.</p>
+
+                <h2 id="tinh-nang">2. Các tính năng chính</h2>
+                <p>Teachable Machine hỗ trợ 3 loại dự án chính:</p>
+                <ul>
+                    <li>🖼️ <strong>Nhận diện hình ảnh (Image Project):</strong> Huấn luyện AI phân biệt các đối tượng
+                        khác nhau thông qua webcam hoặc file ảnh.</li>
+                    <li>🔊 <strong>Nhận diện âm thanh (Audio Project):</strong> Tạo mô hình nhận dạng giọng nói, tiếng
+                        động, hay các lệnh âm thanh ngắn.</li>
+                    <li>🧍 <strong>Nhận diện tư thế cơ thể (Pose Project):</strong> Phân tích tư thế người dùng qua
+                        camera theo thời gian thực, ứng dụng trong game, yoga, thể dục.</li>
+                </ul>
+
+                <h2 id="steps">3. Các bước thực hiện</h2>
+                <p>Quy trình sử dụng Teachable Machine để tạo mô hình AI chỉ gồm 3 bước đơn giản:</p>
+                <ol>
+                    <li>
+                        <strong>Thu thập dữ liệu mẫu đầu vào:</strong> Chụp ảnh, ghi âm hoặc quay video bằng webcam để
+                        tạo các lớp (classes) dữ liệu. Ví dụ: lớp "Con mèo" và lớp "Con chó".
+                    </li>
+                    <li>
+                        <strong>Huấn luyện mô hình AI (Train):</strong> Nhấn nút "Train Model" – Teachable Machine sẽ tự
+                        động huấn luyện mạng nơ-ron nhân tạo ngay trên trình duyệt của bạn chỉ trong vài phút.
+                    </li>
+                    <li>
+                        <strong>Xuất và tích hợp (Export):</strong> Sau khi huấn luyện, bạn có thể xuất mô hình dưới
+                        dạng TensorFlow.js, TensorFlow Lite hoặc các định dạng khác để nhúng vào website hoặc ứng dụng
+                        di động.
+                    </li>
+                </ol>
+
+                <h2 id="video">4. Video Minh hoạ – Hướng dẫn Sử dụng</h2>
+                <p>Xem video hướng dẫn chi tiết cách sử dụng Teachable Machine dưới đây:</p>
+                <div style="border-radius:12px;overflow:hidden;border:1px solid var(--glass-border);margin:20px 0;">
+                    <iframe width="100%" height="420" src="https://www.youtube.com/embed/T2qQGqZxkD0"
+                        title="Teachable Machine Tutorial – Google" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <p><em>📺 Video: Hướng dẫn cách tạo mô hình nhận dạng hình ảnh với Teachable Machine của Google.</em>
+                </p>
+
+                <blockquote>
+                    <strong>💡 Mẹo hay:</strong> Để mô hình chính xác hơn, hãy cung cấp ít nhất 50–100 ảnh mẫu cho mỗi
+                    lớp và thu thập dữ liệu trong nhiều điều kiện ánh sáng, góc độ khác nhau.
+                </blockquote>
+            </article>
+        </div>
+    </main>
+
+    <footer class="footer glass">
+        <div class="footer__inner">
+            <div class="footer__brand">🐄 Cow IT Wiki</div>
+            <div class="footer__links">
+                <a href="mailto:tr.qcnam2k8@gmail.com">📧 tr.qcnam2k8@gmail.com</a>
+                <a href="https://www.facebook.com/truongquocnam.2k8" target="_blank" rel="noopener">📘 Trương Quốc
+                    Nam</a>
+            </div>
+            <div class="footer__copy">© Trương Quốc Nam · since 2026 · 100% Thuần HTML &amp; CSS · No JS</div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cow IT - Bách Khoa Toàn Thư Công Nghệ</title>
+    <meta name="description"
+        content="Cow IT Wiki – Bách khoa toàn thư công nghệ về AI, Web Dev và Thuật toán cho học sinh Tin học 12.">
+    <link rel="icon" href="icons/icon-main.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/animation.css">
+</head>
+
+<body class="master-layout">
+
+    <input type="checkbox" id="dark-mode-toggle">
+
+    <header class="header glass fade-in-up">
+        <div class="header__logo">
+            <img src="icons/icon-main.png" alt="Cow IT Logo">
+            <a href="index.html">Cow IT</a>
+        </div>
+
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="index.html" class="nav__link">🏠 Trang Chủ</a></li>
+                <li class="nav__item">
+                    <a href="#" class="nav__link">📚 Chủ đề ▾</a>
+                    <ul class="nav__dropdown glass">
+                        <li class="nav__dropdown-item"><a href="topics/ai.html"><span class="dd-icon">🤖</span> Trí Tuệ
+                                Nhân Tạo</a></li>
+                        <li class="nav__dropdown-item"><a href="topics/webdev.html"><span class="dd-icon">🌐</span> Phát
+                                Triển Web</a></li>
+                        <li class="nav__dropdown-item"><a href="topics/algorithms.html"><span class="dd-icon">⚙️</span>
+                                Thuật Toán</a></li>
+                    </ul>
+                </li>
+                <li class="nav__item"><a href="about.html" class="nav__link">👤 Giới Thiệu</a></li>
+            </ul>
+        </nav>
+
+        <div class="header__actions">
+            <label for="dark-mode-toggle" class="dark-mode-label" title="Chuyển sáng/tối">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </label>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="bento-grid">
+
+            <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+            <div class="bento__hero glass-card glass fade-in-up animated-border"
+                style="position:relative;overflow:hidden;">
+                <span class="sparkle"></span>
+                <span class="sparkle"></span>
+                <span class="sparkle"></span>
+                <div class="bento__hero-text">
+                    <div style="margin-bottom:16px;">
+                        <span class="tag tag--ai">🚀 Tin Học 12 · 2026</span>
+                    </div>
+                    <div class="typing-container">
+                        <h1 class="typing-text">Kỷ Nguyên Số Cùng Cow IT...</h1>
+                    </div>
+                    <p style="font-size:1.05rem;margin:18px 0 28px;opacity:0.85;max-width:520px;">
+                        Bách khoa toàn thư Công Nghệ – nơi liên kết toàn bộ kiến thức đỉnh cao về
+                        <strong>Trí tuệ Nhân tạo</strong>, <strong>Phát triển Web</strong> và <strong>Thuật
+                            toán</strong> tối ưu.
+                    </p>
+                    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+                        <a href="topics/ai.html" class="btn">🤖 Khám Phá AI</a>
+                        <a href="about.html" class="btn btn-outline">👤 Về Tác Giả</a>
+                    </div>
+                </div>
+                <div class="float-anim" style="flex-shrink:0;">
+                    <img src="icons/Ai_doc_sach.png" alt="Robot đang đọc sách"
+                        style="max-width:240px;filter:drop-shadow(0 10px 30px rgba(108,72,197,0.4));">
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════════ 3 BENTO CARDS ═══════════════════════ -->
+            <a href="topics/ai_pages/teachable-machine.html" class="bento__item-1 glass-card glass scroll-reveal sr-d1"
+                style="display:block;text-decoration:none;">
+                <div style="font-size:2.4rem;margin-bottom:12px;">🧠</div>
+                <span class="tag tag--ai">AI</span>
+                <h3 class="glow-text">Teachable Machine</h3>
+                <p style="font-size:0.9rem;opacity:0.8;">Tạo AI nhận diện hình ảnh, âm thanh không cần code. Thị giác
+                    máy tính trong tầm tay!</p>
+                <span class="read-more">Đọc ngay →</span>
+            </a>
+
+            <a href="topics/webdev_pages/dom-tree.html" class="bento__item-2 glass-card glass scroll-reveal sr-d2"
+                style="display:block;text-decoration:none;">
+                <div style="font-size:2.4rem;margin-bottom:12px;">🌲</div>
+                <span class="tag tag--web">Web</span>
+                <h3 class="glow-text">Cây DOM Web</h3>
+                <p style="font-size:0.9rem;opacity:0.8;">Vai trò cốt lõi của DOM với Lập trình viên. Cấu trúc nền tảng
+                    của mọi website.</p>
+                <span class="read-more">Đọc ngay →</span>
+            </a>
+
+            <a href="topics/algorithms_pages/dynamic-programming.html"
+                class="bento__item-3 glass-card glass scroll-reveal sr-d3" style="display:block;text-decoration:none;">
+                <div style="font-size:2.4rem;margin-bottom:12px;">⚡</div>
+                <span class="tag tag--algo">Thuật Toán</span>
+                <h3 class="glow-text">Quy Hoạch Động</h3>
+                <p style="font-size:0.9rem;opacity:0.8;">Tuyệt kĩ chia trị và ghi nhớ bài toán con đỉnh cao nhất trong
+                    kỳ thi học sinh giỏi.</p>
+                <span class="read-more">Đọc ngay →</span>
+            </a>
+
+            <!-- ═════════════════════════ FEED DỌC - TẤT CẢ BÀI VIẾT ═════════════ -->
+            <div class="section-spacer">
+                <h2 class="section-title">📖 <span>Tất Cả Bài Viết</span></h2>
+            </div>
+
+            <div class="feed-grid">
+                <a href="topics/ai_pages/ai-tools.html" class="feed-card glass scroll-reveal sr-d1">
+                    <div class="feed-card__accent">🛠️</div>
+                    <div class="feed-card__body">
+                        <span class="tag tag--ai">AI</span>
+                        <h3 class="glow-text">Các Công Cụ AI Phổ Biến</h3>
+                        <p>Vũ khí tối thượng trong kỷ nguyên số: ChatGPT, Claude, Midjourney, Copilot và quy trình
+                            Prompt Engineering 4 bước.</p>
+                        <span class="read-more">Đọc bài viết →</span>
+                    </div>
+                </a>
+
+                <a href="topics/ai_pages/teachable-machine.html" class="feed-card glass scroll-reveal sr-d2">
+                    <div class="feed-card__accent">🧠</div>
+                    <div class="feed-card__body">
+                        <span class="tag tag--ai">AI</span>
+                        <h3 class="glow-text">Teachable Machine</h3>
+                        <p>Huấn luyện AI nhận dạng hình ảnh, âm thanh và tư thế ngay trên trình duyệt – không cần viết
+                            một dòng code nào.</p>
+                        <span class="read-more">Đọc bài viết →</span>
+                    </div>
+                </a>
+
+                <a href="topics/webdev_pages/www-history.html" class="feed-card glass scroll-reveal sr-d3">
+                    <div class="feed-card__accent">🌍</div>
+                    <div class="feed-card__body">
+                        <span class="tag tag--web">Web Dev</span>
+                        <h3 class="glow-text">Sự Ra Đời Của WWW</h3>
+                        <p>Hành trình từ mạng ARPANET đến World Wide Web của Tim Berners-Lee – và 3 công nghệ nền tảng
+                            thay đổi thế giới.</p>
+                        <span class="read-more">Đọc bài viết →</span>
+                    </div>
+                </a>
+
+                <a href="topics/webdev_pages/dom-tree.html" class="feed-card glass scroll-reveal sr-d4">
+                    <div class="feed-card__accent">🌲</div>
+                    <div class="feed-card__body">
+                        <span class="tag tag--web">Web Dev</span>
+                        <h3 class="glow-text">Cây DOM Là Gì?</h3>
+                        <p>Khi trình duyệt "đọc" mã HTML – cây gia phả của thế giới Web và lý do mọi lập trình viên cần
+                            hiểu DOM.</p>
+                        <span class="read-more">Đọc bài viết →</span>
+                    </div>
+                </a>
+
+                <a href="topics/algorithms_pages/dynamic-programming.html" class="feed-card glass scroll-reveal sr-d5">
+                    <div class="feed-card__accent">⚡</div>
+                    <div class="feed-card__body">
+                        <span class="tag tag--algo">Thuật Toán</span>
+                        <h3 class="glow-text">Quy Hoạch Động</h3>
+                        <p>Kỹ thuật chia bài toán lớn thành bài toán con nhỏ hơn – nền tảng của mọi kỳ thi học sinh giỏi
+                            Tin học.</p>
+                        <span class="read-more">Đọc bài viết →</span>
+                    </div>
+                </a>
+
+                <a href="topics/algorithms_pages/graph-theory.html" class="feed-card glass scroll-reveal sr-d6">
+                    <div class="feed-card__accent">🕸️</div>
+                    <div class="feed-card__body">
+                        <span class="tag tag--algo">Thuật Toán</span>
+                        <h3 class="glow-text">Lý Thuyết Đồ Thị</h3>
+                        <p>Thuật toán Dijkstra, bảng chạy tay Shortest Path và code C++ – từ bài toán 7 cây cầu
+                            Königsberg đến Google Maps.</p>
+                        <span class="read-more">Đọc bài viết →</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- ════════════════════════ NEWSLETTER ════════════════════════════ -->
+            <div class="bento__newsletter glass-card glass scroll-reveal sr-d1">
+                <div style="font-size:2.5rem;margin-bottom:16px;">📬</div>
+                <h2 class="section-title" style="text-align:center;">Đăng Ký <span>Nhận Thông Báo</span></h2>
+                <p style="opacity:0.75;margin-bottom:24px;">Nhận thông báo khi có bài viết mới từ Cow IT Wiki.</p>
+                <form action="mailto:tr.qcnam2k8@gmail.com" method="get" enctype="text/plain"
+                    style="max-width:440px;margin:0 auto;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+                    <input type="email" class="form__input" placeholder="your@email.com" required
+                        style="max-width:280px;flex:1;">
+                    <button type="submit" class="btn">✉️ Đăng Ký</button>
+                </form>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="footer glass">
+        <div class="footer__inner">
+            <div class="footer__brand">🐄 Cow IT Wiki</div>
+            <div class="footer__links">
+                <a href="mailto:tr.qcnam2k8@gmail.com">📧 tr.qcnam2k8@gmail.com</a>
+                <a href="https://www.facebook.com/truongquocnam.2k8" target="_blank" rel="noopener">📘 Trương Quốc
+                    Nam</a>
+                <a href="about.html">👤 Về Tác Giả</a>
+            </div>
+            <div class="footer__copy">© Trương Quốc Nam · since 2026 · 100% Thuần HTML &amp; CSS · No JS</div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
