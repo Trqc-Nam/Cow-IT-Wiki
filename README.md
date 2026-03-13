@@ -70,8 +70,5 @@ Dự án **Cow IT** là kết quả của quá trình vận dụng kiến thức
 
 Em xin chân thành cảm ơn Thầy/Cô đã giảng dạy và hướng dẫn tận tình!
 
-*Người viết báo cáo,*
-
-*(Ký và ghi rõ họ tên)*
-
-**[Tên của bạn]**
+Trương Quốc Nam
+Email: tr.qcnam2k8@gmail.com
