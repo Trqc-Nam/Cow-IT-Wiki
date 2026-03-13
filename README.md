@@ -2,8 +2,8 @@
 **Tên dự án:** Bách khoa toàn thư Công Nghệ - Cow IT
 
 **Kính gửi:** Thầy/Cô giáo bộ môn Tin học
-**Họ và tên học sinh:** [Tên của bạn]
-**Lớp:** [Tên lớp]
+**Họ và tên học sinh:** Trương Quốc Nam
+**Lớp:** 12A1
 
 ---
 
